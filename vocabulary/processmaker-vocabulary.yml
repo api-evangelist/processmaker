@@ -1,0 +1,208 @@
+vocabulary:
+  name: ProcessMaker Vocabulary
+  description: >
+    Domain vocabulary for ProcessMaker BPM and workflow automation platform,
+    covering core concepts related to process design, case management, task
+    execution, and enterprise integration.
+  url: https://www.processmaker.com
+  version: '1.0'
+  terms:
+    - term: Process
+      definition: >
+        A BPMN 2.0 compliant workflow definition that describes the sequence of
+        activities, decisions, and events involved in completing a business
+        objective. Processes are designed using the ProcessMaker Modeler and
+        stored as BPMN XML.
+      synonyms:
+        - Workflow
+        - Business Process
+      related:
+        - BPMN
+        - Process Category
+        - Start Event
+
+    - term: Request
+      definition: >
+        A running instance of a Process, also called a Case. Each time a process
+        is started, a new Request is created to track its state, data, and
+        progress through the workflow.
+      synonyms:
+        - Case
+        - Process Instance
+        - Process Request
+      related:
+        - Process
+        - Task
+        - Process Data
+
+    - term: Task
+      definition: >
+        A unit of work within a running Request that is assigned to a user or
+        automated system for completion. Tasks are derived from BPMN Task nodes
+        in the process definition and represented internally as process request
+        tokens.
+      synonyms:
+        - User Task
+        - Token
+        - Work Item
+      related:
+        - Request
+        - Screen
+        - Assignee
+
+    - term: Screen
+      definition: >
+        A form or display interface built using the ProcessMaker Screen Builder.
+        Screens define the user interface for task forms, request detail views,
+        and cancellation pages. Screens are BPMN 2.0 agnostic and reusable
+        across multiple processes.
+      synonyms:
+        - Form
+        - Screen Builder Form
+        - Interface
+      related:
+        - Task
+        - Process
+        - Watcher
+
+    - term: Script
+      definition: >
+        A code block (PHP, JavaScript, Lua, R) that can be executed within a
+        process via a Script Task BPMN element to perform data transformation,
+        API calls, or business logic computations.
+      synonyms:
+        - Script Task
+        - Code Block
+      related:
+        - Process
+        - Script Executor
+        - Environment Variable
+
+    - term: Environment Variable
+      definition: >
+        A named key-value pair stored securely at the platform level and
+        accessible to Scripts and processes without exposing sensitive values
+        in process definitions. Commonly used for API keys, database
+        credentials, and configuration values.
+      synonyms:
+        - Config Variable
+        - Secret
+      related:
+        - Script
+        - Process
+
+    - term: BPMN
+      definition: >
+        Business Process Model and Notation - an ISO standard graphical
+        notation for specifying business processes. ProcessMaker is BPMN 2.0
+        compliant, supporting events, gateways, tasks, sub-processes,
+        message flows, and data objects.
+      synonyms:
+        - Business Process Model and Notation
+        - BPMN 2.0
+      related:
+        - Process
+        - Start Event
+        - Gateway
+
+    - term: Start Event
+      definition: >
+        A BPMN element that marks the beginning of a process flow. ProcessMaker
+        supports multiple start event types including none, message, signal,
+        timer, and conditional. Each start event can be individually triggered
+        via the API.
+      synonyms:
+        - Trigger
+        - Initiating Event
+      related:
+        - Process
+        - Request
+
+    - term: Gateway
+      definition: >
+        A BPMN routing element that controls the divergence and convergence of
+        process flow paths. ProcessMaker supports exclusive (XOR), inclusive
+        (OR), parallel (AND), and event-based gateways.
+      synonyms:
+        - Decision Point
+        - Routing Element
+      related:
+        - Process
+        - Sequence Flow
+
+    - term: Process Category
+      definition: >
+        A label used to organize and group related processes in the ProcessMaker
+        library. Categories help users discover and manage processes at scale.
+      synonyms:
+        - Category
+        - Process Group
+      related:
+        - Process
+
+    - term: Watcher
+      definition: >
+        A Screen feature that monitors a variable for changes and triggers an
+        action (such as an API call or script execution) when the value changes.
+        Watchers are configured per Screen and enable dynamic form behavior.
+      related:
+        - Screen
+        - Script
+
+    - term: Signal
+      definition: >
+        A BPMN signal is a broadcast notification that can be received by one
+        or more processes or sub-processes. ProcessMaker exposes signals via
+        the API to trigger intermediate catch events in running requests.
+      related:
+        - Request
+        - Start Event
+
+    - term: Collection
+      definition: >
+        A premium ProcessMaker feature providing a structured data store
+        (similar to a simple database table) that can be managed and queried
+        within processes and screens without requiring an external database.
+      synonyms:
+        - Data Collection
+      related:
+        - Process
+        - Script
+
+    - term: Data Connector
+      definition: >
+        A premium ProcessMaker feature that provides a pre-built, configurable
+        integration to external data sources and APIs (e.g., Salesforce, SAP,
+        REST APIs) that can be used within processes and screens without
+        custom scripting.
+      synonyms:
+        - Integration
+        - Connector
+      related:
+        - Process
+        - Script
+
+    - term: Personal Access Token
+      definition: >
+        A bearer token generated for a specific user account used to
+        authenticate API requests to the ProcessMaker REST API. Tokens are
+        scoped to the user's permissions.
+      synonyms:
+        - API Token
+        - Bearer Token
+        - PAT
+      related:
+        - Authentication
+        - OAuth2
+
+    - term: Launchpad
+      definition: >
+        A configurable home screen within ProcessMaker that provides users
+        with quick access to processes they frequently start, their active
+        tasks, and relevant dashboards.
+      synonyms:
+        - Home Screen
+        - Dashboard
+      related:
+        - Process
+        - Task

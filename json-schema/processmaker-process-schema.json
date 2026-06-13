@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/processmaker/json-schema/processmaker-process-schema.json",
+  "title": "ProcessMaker Process",
+  "description": "Schema for a ProcessMaker BPMN 2.0 process definition",
+  "type": "object",
+  "required": ["name", "status", "bpmn", "process_category_id"],
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Unique identifier for the process",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the process",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the process",
+      "maxLength": 4294967295
+    },
+    "status": {
+      "type": "string",
+      "description": "Status of the process",
+      "enum": ["ACTIVE", "INACTIVE"]
+    },
+    "bpmn": {
+      "type": "string",
+      "description": "BPMN 2.0 XML string defining the process flow"
+    },
+    "process_category_id": {
+      "type": "integer",
+      "description": "ID of the category this process belongs to"
+    },
+    "user_id": {
+      "type": "integer",
+      "description": "ID of the user who owns the process",
+      "readOnly": true
+    },
+    "manager_id": {
+      "type": ["integer", "null"],
+      "description": "ID of the manager assigned to the process"
+    },
+    "cancel_screen_id": {
+      "type": ["integer", "null"],
+      "description": "ID of the screen shown when a request is cancelled"
+    },
+    "request_detail_screen_id": {
+      "type": ["integer", "null"],
+      "description": "ID of the screen shown in the request detail view"
+    },
+    "is_valid": {
+      "type": "boolean",
+      "description": "Whether the process BPMN definition is valid"
+    },
+    "warnings": {
+      "type": "array",
+      "description": "Validation warnings",
+      "items": {
+        "type": "string"
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the process was created",
+      "readOnly": true
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the process was last updated",
+      "readOnly": true
+    },
+    "deleted_at": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "Timestamp when the process was soft-deleted",
+      "readOnly": true
+    }
+  },
+  "additionalProperties": false
+}

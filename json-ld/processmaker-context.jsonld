@@ -1,0 +1,276 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "schema": "https://schema.org/",
+    "pm": "https://www.processmaker.com/vocabulary#",
+    "bpmn": "http://www.omg.org/spec/BPMN/20100524/MODEL#",
+
+    "Process": "pm:Process",
+    "Request": "pm:Request",
+    "Task": "pm:Task",
+    "Screen": "pm:Screen",
+    "Script": "pm:Script",
+    "EnvironmentVariable": "pm:EnvironmentVariable",
+    "Group": "pm:Group",
+    "User": "pm:User",
+    "Notification": "pm:Notification",
+    "ProcessCategory": "pm:ProcessCategory",
+    "Signal": "pm:Signal",
+    "Media": "pm:Media",
+
+    "id": "@id",
+    "type": "@type",
+
+    "name": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "description": {
+      "@id": "schema:description",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "pm:status",
+      "@type": "xsd:string"
+    },
+    "bpmn": {
+      "@id": "bpmn:definitions",
+      "@type": "xsd:string"
+    },
+    "created_at": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "updated_at": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+    "deleted_at": {
+      "@id": "pm:deletedAt",
+      "@type": "xsd:dateTime"
+    },
+    "user_id": {
+      "@id": "pm:assignedUser",
+      "@type": "xsd:integer"
+    },
+    "process_id": {
+      "@id": "pm:process",
+      "@type": "xsd:integer"
+    },
+    "process_request_id": {
+      "@id": "pm:processRequest",
+      "@type": "xsd:integer"
+    },
+    "process_category_id": {
+      "@id": "pm:category",
+      "@type": "xsd:integer"
+    },
+    "manager_id": {
+      "@id": "pm:manager",
+      "@type": "xsd:integer"
+    },
+    "cancel_screen_id": {
+      "@id": "pm:cancelScreen",
+      "@type": "xsd:integer"
+    },
+    "request_detail_screen_id": {
+      "@id": "pm:requestDetailScreen",
+      "@type": "xsd:integer"
+    },
+    "is_valid": {
+      "@id": "pm:isValid",
+      "@type": "xsd:boolean"
+    },
+    "warnings": {
+      "@id": "pm:validationWarnings",
+      "@container": "@list"
+    },
+    "callable_id": {
+      "@id": "pm:callableId",
+      "@type": "xsd:string"
+    },
+    "process_collaboration_id": {
+      "@id": "pm:processCollaboration",
+      "@type": "xsd:integer"
+    },
+    "data": {
+      "@id": "pm:requestData",
+      "@type": "@json"
+    },
+    "completed_at": {
+      "@id": "pm:completedAt",
+      "@type": "xsd:dateTime"
+    },
+    "element_id": {
+      "@id": "pm:bpmnElementId",
+      "@type": "xsd:string"
+    },
+    "element_type": {
+      "@id": "pm:bpmnElementType",
+      "@type": "xsd:string"
+    },
+    "element_name": {
+      "@id": "pm:bpmnElementName",
+      "@type": "xsd:string"
+    },
+    "due_at": {
+      "@id": "schema:scheduledTime",
+      "@type": "xsd:dateTime"
+    },
+    "username": {
+      "@id": "schema:identifier",
+      "@type": "xsd:string"
+    },
+    "firstname": {
+      "@id": "schema:givenName",
+      "@type": "xsd:string"
+    },
+    "lastname": {
+      "@id": "schema:familyName",
+      "@type": "xsd:string"
+    },
+    "email": {
+      "@id": "schema:email",
+      "@type": "xsd:string"
+    },
+    "timezone": {
+      "@id": "schema:timezone",
+      "@type": "xsd:string"
+    },
+    "language": {
+      "@id": "schema:language",
+      "@type": "xsd:string"
+    },
+    "avatar": {
+      "@id": "schema:image",
+      "@type": "xsd:anyURI"
+    },
+    "phone": {
+      "@id": "schema:telephone",
+      "@type": "xsd:string"
+    },
+    "title": {
+      "@id": "schema:jobTitle",
+      "@type": "xsd:string"
+    },
+    "address": {
+      "@id": "schema:streetAddress",
+      "@type": "xsd:string"
+    },
+    "city": {
+      "@id": "schema:addressLocality",
+      "@type": "xsd:string"
+    },
+    "state": {
+      "@id": "schema:addressRegion",
+      "@type": "xsd:string"
+    },
+    "postal": {
+      "@id": "schema:postalCode",
+      "@type": "xsd:string"
+    },
+    "country": {
+      "@id": "schema:addressCountry",
+      "@type": "xsd:string"
+    },
+    "is_administrator": {
+      "@id": "pm:isAdministrator",
+      "@type": "xsd:boolean"
+    },
+    "fullname": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "config": {
+      "@id": "pm:screenConfig",
+      "@type": "@json"
+    },
+    "computed": {
+      "@id": "pm:computedFields",
+      "@container": "@list"
+    },
+    "watchers": {
+      "@id": "pm:watchers",
+      "@container": "@list"
+    },
+    "custom_css": {
+      "@id": "pm:customCss",
+      "@type": "xsd:string"
+    },
+    "screen_category_id": {
+      "@id": "pm:screenCategory",
+      "@type": "xsd:integer"
+    },
+    "value": {
+      "@id": "pm:variableValue",
+      "@type": "xsd:string"
+    },
+    "model_id": {
+      "@id": "pm:attachedToId",
+      "@type": "xsd:integer"
+    },
+    "model_type": {
+      "@id": "pm:attachedToType",
+      "@type": "xsd:string"
+    },
+    "collection_name": {
+      "@id": "pm:mediaCollection",
+      "@type": "xsd:string"
+    },
+    "file_name": {
+      "@id": "pm:fileName",
+      "@type": "xsd:string"
+    },
+    "mime_type": {
+      "@id": "schema:encodingFormat",
+      "@type": "xsd:string"
+    },
+    "size": {
+      "@id": "schema:fileSize",
+      "@type": "xsd:integer"
+    },
+    "url": {
+      "@id": "schema:url",
+      "@type": "xsd:anyURI"
+    },
+    "read_at": {
+      "@id": "pm:readAt",
+      "@type": "xsd:dateTime"
+    },
+    "meta": {
+      "@id": "pm:paginationMetadata",
+      "@type": "@json"
+    },
+    "total": {
+      "@id": "pm:totalCount",
+      "@type": "xsd:integer"
+    },
+    "count": {
+      "@id": "pm:pageCount",
+      "@type": "xsd:integer"
+    },
+    "per_page": {
+      "@id": "pm:perPage",
+      "@type": "xsd:integer"
+    },
+    "current_page": {
+      "@id": "pm:currentPage",
+      "@type": "xsd:integer"
+    },
+    "total_pages": {
+      "@id": "pm:totalPages",
+      "@type": "xsd:integer"
+    },
+
+    "provider": {
+      "@id": "schema:provider",
+      "@type": "@id"
+    },
+    "ProcessMaker": {
+      "@id": "pm:ProcessMaker",
+      "schema:url": {"@value": "https://www.processmaker.com", "@type": "@id"},
+      "schema:description": "Intelligent BPM and workflow automation platform"
+    }
+  }
+}

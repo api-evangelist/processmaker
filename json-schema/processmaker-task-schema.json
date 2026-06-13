@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/processmaker/json-schema/processmaker-task-schema.json",
+  "title": "ProcessMaker Task",
+  "description": "Schema for a ProcessMaker task (process request token)",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Unique identifier for the task",
+      "readOnly": true
+    },
+    "status": {
+      "type": "string",
+      "description": "Current status of the task",
+      "enum": ["ACTIVE", "CLOSED", "TRIGGERED"]
+    },
+    "element_id": {
+      "type": "string",
+      "description": "BPMN element ID of the task node"
+    },
+    "element_type": {
+      "type": "string",
+      "description": "BPMN element type (e.g., userTask, serviceTask)"
+    },
+    "element_name": {
+      "type": "string",
+      "description": "Display name of the BPMN element"
+    },
+    "process_id": {
+      "type": "integer",
+      "description": "ID of the process this task belongs to"
+    },
+    "process_request_id": {
+      "type": "integer",
+      "description": "ID of the process request this task is part of"
+    },
+    "user_id": {
+      "type": ["integer", "null"],
+      "description": "ID of the user assigned to this task"
+    },
+    "due_at": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "Due date/time for the task"
+    },
+    "completed_at": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "Timestamp when the task was completed",
+      "readOnly": true
+    },
+    "data": {
+      "type": "object",
+      "description": "Form data associated with the task"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the task was created",
+      "readOnly": true
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the task was last updated",
+      "readOnly": true
+    }
+  },
+  "additionalProperties": false
+}

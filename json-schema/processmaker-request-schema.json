@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/processmaker/json-schema/processmaker-request-schema.json",
+  "title": "ProcessMaker Process Request",
+  "description": "Schema for a ProcessMaker process request (case instance)",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Unique identifier for the process request",
+      "readOnly": true
+    },
+    "process_id": {
+      "type": "integer",
+      "description": "ID of the process this request is an instance of",
+      "readOnly": true
+    },
+    "user_id": {
+      "type": "integer",
+      "description": "ID of the user who initiated the request",
+      "readOnly": true
+    },
+    "process_collaboration_id": {
+      "type": ["integer", "null"],
+      "description": "ID of the collaboration if this is a collaborative process",
+      "readOnly": true
+    },
+    "callable_id": {
+      "type": "string",
+      "description": "BPMN callable element ID",
+      "readOnly": true
+    },
+    "status": {
+      "type": "string",
+      "description": "Current status of the process request",
+      "enum": ["ACTIVE", "COMPLETED", "ERROR", "CANCELED"]
+    },
+    "name": {
+      "type": "string",
+      "description": "Display name of the process request"
+    },
+    "data": {
+      "type": "object",
+      "description": "Data payload associated with the process request"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the request was created",
+      "readOnly": true
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the request was last updated",
+      "readOnly": true
+    },
+    "completed_at": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "Timestamp when the request was completed",
+      "readOnly": true
+    }
+  },
+  "additionalProperties": false
+}

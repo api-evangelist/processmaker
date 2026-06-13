@@ -1,0 +1,33 @@
+{
+  "request": {
+    "status": "COMPLETED",
+    "data": {
+      "documents_received": true,
+      "id_verified": true,
+      "nda_signed": true,
+      "equipment_requested": ["laptop", "monitor", "headset"],
+      "notes": "All required documents collected and verified."
+    }
+  },
+  "response": {
+    "id": 5678,
+    "status": "CLOSED",
+    "element_id": "node_2",
+    "element_type": "userTask",
+    "element_name": "Collect Documents",
+    "process_id": 42,
+    "process_request_id": 1234,
+    "user_id": 15,
+    "due_at": "2026-06-20T17:00:00.000000Z",
+    "completed_at": "2026-06-13T14:30:00.000000Z",
+    "data": {
+      "documents_received": true,
+      "id_verified": true,
+      "nda_signed": true,
+      "equipment_requested": ["laptop", "monitor", "headset"],
+      "notes": "All required documents collected and verified."
+    },
+    "created_at": "2026-06-13T10:00:05.000000Z",
+    "updated_at": "2026-06-13T14:30:00.000000Z"
+  }
+}

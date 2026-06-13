@@ -1,0 +1,32 @@
+{
+  "request": {
+    "process_id": 42,
+    "event": "node_1",
+    "data": {
+      "employee_name": "Jane Smith",
+      "employee_email": "jane.smith@example.com",
+      "department": "Engineering",
+      "start_date": "2026-07-01",
+      "manager_id": 15
+    }
+  },
+  "response": {
+    "id": 1234,
+    "process_id": 42,
+    "user_id": 7,
+    "process_collaboration_id": null,
+    "callable_id": "ProcessId:node_1",
+    "status": "ACTIVE",
+    "name": "Employee Onboarding - Jane Smith",
+    "data": {
+      "employee_name": "Jane Smith",
+      "employee_email": "jane.smith@example.com",
+      "department": "Engineering",
+      "start_date": "2026-07-01",
+      "manager_id": 15
+    },
+    "created_at": "2026-06-13T10:00:00.000000Z",
+    "updated_at": "2026-06-13T10:00:00.000000Z",
+    "completed_at": null
+  }
+}

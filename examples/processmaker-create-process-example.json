@@ -1,0 +1,7 @@
+{
+  "name": "Employee Onboarding",
+  "description": "Workflow to onboard new employees including document collection, system access provisioning, and orientation scheduling.",
+  "status": "ACTIVE",
+  "bpmn": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><definitions xmlns=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:activiti=\"http://activiti.org/bpmn\" targetNamespace=\"http://www.activiti.org/test\"><process id=\"onboarding\" name=\"Employee Onboarding\" isExecutable=\"true\"><startEvent id=\"start\" name=\"Start\"/><userTask id=\"collectDocs\" name=\"Collect Documents\" activiti:assignee=\"${hrManager}\"/><userTask id=\"provisionAccess\" name=\"Provision System Access\" activiti:assignee=\"${itAdmin}\"/><endEvent id=\"end\" name=\"End\"/><sequenceFlow id=\"flow1\" sourceRef=\"start\" targetRef=\"collectDocs\"/><sequenceFlow id=\"flow2\" sourceRef=\"collectDocs\" targetRef=\"provisionAccess\"/><sequenceFlow id=\"flow3\" sourceRef=\"provisionAccess\" targetRef=\"end\"/></process></definitions>",
+  "process_category_id": 1
+}
