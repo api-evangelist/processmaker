@@ -1,0 +1,52 @@
+name: ProcessMaker Plans and Pricing
+description: ProcessMaker offers cloud and on-premise deployment options with usage-based pricing across multiple tiers. Pricing is based on the number of users and cases (process instances) initiated per period. Enterprise plans include advanced features for large organizations requiring comprehensive BPM and intelligent automation capabilities.
+url: https://www.processmaker.com/products/pricing/
+plans:
+  - name: Standard
+    description: Entry-level plan suited for small to mid-size teams getting started with workflow automation and BPM.
+    pricing:
+      model: Per User / Per Month
+      startingAt: '$249/month for 10 users'
+    features:
+      - BPMN 2.0 Process Designer
+      - REST API access
+      - Basic workflow automation
+      - Form builder
+      - Case management
+      - Standard reporting
+    limitations:
+      - Limited number of users
+      - Basic integrations only
+  - name: Corporate
+    description: Mid-tier plan for growing organizations requiring more users and advanced automation capabilities.
+    pricing:
+      model: Per User / Per Month
+      startingAt: '$499/month for 25 users'
+    features:
+      - All Standard features
+      - Advanced process automation
+      - Extended API access
+      - Priority support
+      - Advanced reporting and analytics
+      - More integration options
+  - name: Enterprise
+    description: Full-featured plan for large organizations requiring comprehensive BPM, intelligent automation, and enterprise-grade security and scalability.
+    pricing:
+      model: Custom / Contact Sales
+      startingAt: Contact ProcessMaker for pricing
+    features:
+      - All Corporate features
+      - Unlimited users (negotiable)
+      - Intelligent automation (AI/ML)
+      - Advanced process intelligence
+      - Enterprise SSO and security
+      - SLA-backed support
+      - On-premise or cloud deployment
+      - Custom integrations
+      - Dedicated account management
+      - Process mining and analytics
+notes:
+  - Pricing is usage-based; each process instance started counts as one case
+  - Cloud and on-premise deployment options available
+  - Contact ProcessMaker sales for exact Enterprise pricing
+  - ProcessMaker acquired Workfellow for Process Intelligence capabilities

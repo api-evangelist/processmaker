@@ -1,0 +1,50 @@
+name: ProcessMaker FinOps
+description: Financial operations guidance for managing ProcessMaker API and platform costs. ProcessMaker uses a usage-based pricing model where costs are driven primarily by the number of active users and process cases (instances) initiated on the platform.
+url: https://www.processmaker.com/products/pricing/
+costDrivers:
+  - name: Users
+    description: The number of named users accessing the ProcessMaker platform is the primary cost driver across all plan tiers.
+    unitOfMeasure: Per user per month
+    impact: High
+  - name: Cases
+    description: Each time a user starts a process, that counts as one case. Case volume drives usage costs on usage-based plans.
+    unitOfMeasure: Per case initiated
+    impact: High
+  - name: Deployment Type
+    description: Cloud-hosted plans are billed by ProcessMaker; on-premise deployments require infrastructure costs managed by the customer.
+    unitOfMeasure: N/A
+    impact: Medium
+  - name: Integrations and Connectors
+    description: Enterprise integration features and data connectors may affect plan tier requirements and associated costs.
+    unitOfMeasure: Per integration
+    impact: Medium
+optimization:
+  - recommendation: Right-size user licenses
+    description: Audit active users regularly and remove or deactivate users who no longer need access to reduce per-user costs.
+  - recommendation: Monitor case volume
+    description: Track process instance (case) volumes to forecast costs and identify high-frequency processes that may benefit from optimization.
+  - recommendation: Evaluate deployment model
+    description: For high-volume deployments, compare cloud subscription costs versus on-premise infrastructure and licensing costs.
+  - recommendation: Leverage open-source community edition
+    description: ProcessMaker offers an open-source community edition for self-hosted deployments, which may be cost-effective for smaller teams with technical capacity.
+    url: https://github.com/ProcessMaker/processmaker
+  - recommendation: Negotiate Enterprise contracts
+    description: For large organizations, negotiate custom Enterprise agreements that may offer better per-unit economics at scale.
+budgeting:
+  - tier: Small Team (10 users)
+    estimatedMonthly: '$249/month'
+    estimatedAnnual: '$2,988/year'
+    notes: Standard plan pricing, cloud-hosted
+  - tier: Mid-size Team (25 users)
+    estimatedMonthly: '$499/month'
+    estimatedAnnual: '$5,988/year'
+    notes: Corporate plan pricing, cloud-hosted
+  - tier: Enterprise
+    estimatedMonthly: Custom
+    estimatedAnnual: Custom
+    notes: Contact sales; pricing varies by user count, case volume, and features
+references:
+  - url: https://www.processmaker.com/products/pricing/
+    description: Official ProcessMaker pricing page
+  - url: https://github.com/ProcessMaker/processmaker
+    description: ProcessMaker open-source community edition on GitHub
