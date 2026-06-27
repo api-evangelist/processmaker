@@ -46,7 +46,7 @@ common:
     url: https://www.processmaker.com
   - type: Documentation
     url: https://docs.processmaker.com
-  - type: DeveloperDocumentation
+  - type: Documentation
     url: https://processmaker.gitbook.io/developer-documentation
   - type: GitHubOrg
     url: https://github.com/ProcessMaker
@@ -60,7 +60,7 @@ common:
     url: https://www.processmaker.com/blog/
   - type: ReleaseNotes
     url: https://docs.processmaker.com/docs/release-notes
-  - type: Forum
+  - type: Forums
     url: https://forum.processmaker.com
   - type: Pricing
     url: https://www.processmaker.com/products/pricing/
