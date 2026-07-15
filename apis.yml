@@ -42,6 +42,8 @@ apis:
       - FN: ProcessMaker Support
         url: https://www.processmaker.com/support/
 common:
+  - type: AgenticAccess
+    url: agentic-access/processmaker-agentic-access.yml
   - type: DomainSecurity
     url: security/processmaker-domain-security.yml
   - type: Authentication
