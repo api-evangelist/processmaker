@@ -1,0 +1,32 @@
+{
+  "provider": "processmaker",
+  "sources": [
+    "processmaker-environment-variables-api-openapi.yml",
+    "processmaker-files-api-openapi.yml",
+    "processmaker-groups-api-openapi.yml",
+    "processmaker-notifications-api-openapi.yml",
+    "processmaker-processes-api-openapi.yml",
+    "processmaker-requests-api-openapi.yml",
+    "processmaker-screens-api-openapi.yml",
+    "processmaker-settings-api-openapi.yml",
+    "processmaker-tasks-api-openapi.yml",
+    "processmaker-users-api-openapi.yml"
+  ],
+  "outputs": [
+    "processmaker-environment-variables-api-openapi.yml",
+    "processmaker-files-api-openapi.yml",
+    "processmaker-groups-api-openapi.yml",
+    "processmaker-notifications-api-openapi.yml",
+    "processmaker-processes-api-openapi.yml",
+    "processmaker-requests-api-openapi.yml",
+    "processmaker-screens-api-openapi.yml",
+    "processmaker-settings-api-openapi.yml",
+    "processmaker-tasks-api-openapi.yml",
+    "processmaker-users-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
