@@ -173,6 +173,9 @@ apis:
   - type: Authentication
     url: https://github.com/ProcessMaker/processmaker/wiki/API-Authentication
 common:
+  - type: License
+    name: AGPL-3.0
+    url: https://github.com/ProcessMaker/processmaker/blob/develop/LICENSE
   - type: AgenticAccess
     url: agentic-access/processmaker-agentic-access.yml
   - type: DomainSecurity
