@@ -1,0 +1,1327 @@
+{
+  "item": [
+    {
+      "id": "dec3f4f6-59b1-4705-8639-b1673b61659d",
+      "name": "Screens",
+      "description": {
+        "content": "Form screen design and management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "49c2312d-4c7d-4e9e-949f-50810ebf278d",
+          "name": "Returns all screens that the user has access to",
+          "request": {
+            "name": "Returns all screens that the user has access to",
+            "description": {},
+            "url": {
+              "path": [
+                "screens"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by",
+                  "value": "<string>",
+                  "description": "Field to order results by"
+                },
+                {
+                  "disabled": false,
+                  "key": "order_direction",
+                  "value": "asc"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "",
+                  "description": "Include data from related models in payload. Comma separated list."
+                },
+                {
+                  "disabled": false,
+                  "key": "exclude",
+                  "value": "<string>",
+                  "description": "Comma-separated fields to exclude from response"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your ProcessMaker organization subdomain",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "59a06741-4d97-4b0d-aa27-4e6026639496",
+              "name": "List of screens",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "screens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_direction",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "include",
+                      "value": ""
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"title\": \"string\",\n      \"type\": \"FORM\",\n      \"config\": {},\n      \"description\": \"string\",\n      \"custom_css\": \"string\",\n      \"screen_category_id\": 521,\n      \"id\": 988,\n      \"user_id\": 6131,\n      \"created_at\": \"2019-11-16T15:21:48.656Z\",\n      \"updated_at\": \"1996-06-18T07:00:27.024Z\",\n      \"deleted_at\": \"1973-03-27T21:31:45.071Z\"\n    },\n    {\n      \"title\": \"string\",\n      \"type\": \"EMAIL\",\n      \"config\": {},\n      \"description\": \"string\",\n      \"custom_css\": \"string\",\n      \"screen_category_id\": 7906,\n      \"id\": 6114,\n      \"user_id\": 6233,\n      \"created_at\": \"1996-05-08T18:56:28.830Z\",\n      \"updated_at\": \"1957-11-11T07:59:11.010Z\",\n      \"deleted_at\": \"1974-01-30T06:29:40.042Z\"\n    }\n  ],\n  \"meta\": {\n    \"total\": 7633,\n    \"count\": 7446,\n    \"per_page\": 3039,\n    \"current_page\": 6493,\n    \"total_pages\": 5206,\n    \"sort_by\": \"string\",\n    \"sort_order\": \"string\",\n    \"search\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ba428956-80ac-44c5-b62f-5daafbb8238d",
+          "name": "Save a new screen",
+          "request": {
+            "name": "Save a new screen",
+            "description": {},
+            "url": {
+              "path": [
+                "screens"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your ProcessMaker organization subdomain",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"config\": \"<object>\",\n  \"description\": \"<string>\",\n  \"computed\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"watchers\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"custom_css\": \"<string>\",\n  \"screen_category_id\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ea0bad00-c6eb-4166-87a7-fb6469324ae4",
+              "name": "Created screen",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "screens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"config\": \"<object>\",\n  \"description\": \"<string>\",\n  \"computed\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"watchers\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"custom_css\": \"<string>\",\n  \"screen_category_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"config\": \"<object>\",\n  \"description\": \"<string>\",\n  \"computed\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"watchers\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"custom_css\": \"<string>\",\n  \"screen_category_id\": \"<integer>\",\n  \"id\": 2647,\n  \"user_id\": 3550,\n  \"created_at\": \"1994-11-23T23:50:39.789Z\",\n  \"updated_at\": \"1975-07-04T20:41:55.288Z\",\n  \"deleted_at\": \"1975-02-01T06:16:00.748Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "03502b47-d6b9-4542-bdce-5e3fd1f7c828",
+          "name": "Get single screen by ID",
+          "request": {
+            "name": "Get single screen by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "screens",
+                ":screens_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "screens_id",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Your ProcessMaker organization subdomain",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dd144b35-06b2-4485-b20c-d36f698f1bd4",
+              "name": "Single screen",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "screens",
+                    ":screens_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "screens_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"config\": \"<object>\",\n  \"description\": \"<string>\",\n  \"computed\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"watchers\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"custom_css\": \"<string>\",\n  \"screen_category_id\": \"<integer>\",\n  \"id\": 2647,\n  \"user_id\": 3550,\n  \"created_at\": \"1994-11-23T23:50:39.789Z\",\n  \"updated_at\": \"1975-07-04T20:41:55.288Z\",\n  \"deleted_at\": \"1975-02-01T06:16:00.748Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "393b9e94-a7ea-410b-be8b-fe81ab1d330b",
+          "name": "Update a screen",
+          "request": {
+            "name": "Update a screen",
+            "description": {},
+            "url": {
+              "path": [
+                "screens",
+                ":screens_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "screens_id",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Your ProcessMaker organization subdomain",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"config\": \"<object>\",\n  \"description\": \"<string>\",\n  \"computed\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"watchers\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"custom_css\": \"<string>\",\n  \"screen_category_id\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e7f8e50a-cd86-4311-a044-5d2aa084001d",
+              "name": "No content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "screens",
+                    ":screens_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "screens_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"config\": \"<object>\",\n  \"description\": \"<string>\",\n  \"computed\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"watchers\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"custom_css\": \"<string>\",\n  \"screen_category_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "94bc30ad-7b78-40a3-9f6f-f319490dae11",
+          "name": "Delete a screen",
+          "request": {
+            "name": "Delete a screen",
+            "description": {},
+            "url": {
+              "path": [
+                "screens",
+                ":screens_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "screens_id",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Your ProcessMaker organization subdomain",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2cd0cbfd-9f78-42fc-b3d8-b494ccef460f",
+              "name": "No content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "screens",
+                    ":screens_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "screens_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c5716df2-0886-4433-90e0-543f5e5ec5d5",
+          "name": "Update a draft screen",
+          "request": {
+            "name": "Update a draft screen",
+            "description": {},
+            "url": {
+              "path": [
+                "screens",
+                ":screens_id",
+                "draft"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "screens_id",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Your ProcessMaker organization subdomain",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"config\": \"<object>\",\n  \"description\": \"<string>\",\n  \"computed\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"watchers\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"custom_css\": \"<string>\",\n  \"screen_category_id\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9e722111-042e-4216-aa1f-5a0898de24fc",
+              "name": "No content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "screens",
+                    ":screens_id",
+                    "draft"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "screens_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"config\": \"<object>\",\n  \"description\": \"<string>\",\n  \"computed\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"watchers\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"custom_css\": \"<string>\",\n  \"screen_category_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6458dd74-e729-4c09-a86a-59f40be0e90e",
+          "name": "Duplicate a screen",
+          "request": {
+            "name": "Duplicate a screen",
+            "description": {},
+            "url": {
+              "path": [
+                "screens",
+                ":screens_id",
+                "duplicate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "screens_id",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Your ProcessMaker organization subdomain",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"config\": \"<object>\",\n  \"description\": \"<string>\",\n  \"computed\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"watchers\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"custom_css\": \"<string>\",\n  \"screen_category_id\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "78c938f4-ae99-4067-bde3-814bb23f558b",
+              "name": "Duplicated screen",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "screens",
+                    ":screens_id",
+                    "duplicate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "screens_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"config\": \"<object>\",\n  \"description\": \"<string>\",\n  \"computed\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"watchers\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"custom_css\": \"<string>\",\n  \"screen_category_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"config\": \"<object>\",\n  \"description\": \"<string>\",\n  \"computed\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"watchers\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"custom_css\": \"<string>\",\n  \"screen_category_id\": \"<integer>\",\n  \"id\": 2647,\n  \"user_id\": 3550,\n  \"created_at\": \"1994-11-23T23:50:39.789Z\",\n  \"updated_at\": \"1975-07-04T20:41:55.288Z\",\n  \"deleted_at\": \"1975-02-01T06:16:00.748Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "41eb4ad1-a9e6-400d-bfff-1b6f948225f8",
+          "name": "Export a single screen by ID",
+          "request": {
+            "name": "Export a single screen by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "screens",
+                ":screensId",
+                "export"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "screensId",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Your ProcessMaker organization subdomain",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "00eed0d2-c49a-4482-a681-42423bf641c8",
+              "name": "Screen export URL",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "screens",
+                    ":screensId",
+                    "export"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "screensId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"url\": \"https://FAcysxvbzoLUnhXrxqfNbLXNttMCMMT.eanxhM5QuBcAMy2,rf8sH0EG.OA28uTMpApah,ivUyeWBt4MseMsV\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e6216fdd-e957-464a-9dfc-829fb8171288",
+          "name": "Import a new screen",
+          "request": {
+            "name": "Import a new screen",
+            "description": {},
+            "url": {
+              "path": [
+                "screens",
+                "import"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your ProcessMaker organization subdomain",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0f447355-ed67-4fb6-a3a2-a7ca53f55c4f",
+              "name": "Import status",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "screens",
+                    "import"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e2009f46-0604-4a2f-ba14-97594a13ed25",
+          "name": "Preview a screen",
+          "request": {
+            "name": "Preview a screen",
+            "description": {},
+            "url": {
+              "path": [
+                "screens",
+                "preview"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your ProcessMaker organization subdomain",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"config\": \"<object>\",\n  \"watchers\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"computed\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"custom_css\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d00705f2-6236-496f-9500-edcf64cc50e6",
+              "name": "Screen preview resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "screens",
+                    "preview"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"config\": \"<object>\",\n  \"watchers\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"computed\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"custom_css\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"config\": \"<object>\",\n  \"description\": \"<string>\",\n  \"computed\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"watchers\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"custom_css\": \"<string>\",\n  \"screen_category_id\": \"<integer>\",\n  \"id\": 2647,\n  \"user_id\": 3550,\n  \"created_at\": \"1994-11-23T23:50:39.789Z\",\n  \"updated_at\": \"1975-07-04T20:41:55.288Z\",\n  \"deleted_at\": \"1975-02-01T06:16:00.748Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "849ba56b-425a-4326-a0d1-85cdfb2152e4",
+          "name": "Translates the screen to the desired language",
+          "request": {
+            "name": "Translates the screen to the desired language",
+            "description": {},
+            "url": {
+              "path": [
+                "screens",
+                ":screen_id",
+                "translate",
+                ":language"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "screen_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "language",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Your ProcessMaker organization subdomain",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "058d443c-f099-4ef6-a750-17bf714abad9",
+              "name": "Translated screen",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "screens",
+                    ":screen_id",
+                    "translate",
+                    ":language"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "screen_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "language",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"title\": \"<string>\",\n  \"type\": \"<string>\",\n  \"config\": \"<object>\",\n  \"description\": \"<string>\",\n  \"computed\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"watchers\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"custom_css\": \"<string>\",\n  \"screen_category_id\": \"<integer>\",\n  \"id\": 2647,\n  \"user_id\": 3550,\n  \"created_at\": \"1994-11-23T23:50:39.789Z\",\n  \"updated_at\": \"1975-07-04T20:41:55.288Z\",\n  \"deleted_at\": \"1975-02-01T06:16:00.748Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your ProcessMaker organization subdomain",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "myorg",
+      "key": "organization"
+    },
+    {
+      "type": "string",
+      "value": "https://{{organization}}.processmaker.net/api/1.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a365a71e-8bad-4127-a9e5-9693d4b8e833",
+    "name": "ProcessMaker Platform RESTful Environment Variables Screens API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The ProcessMaker Platform RESTful API provides programmatic access to all platform functionality including process design, case management, task handling, user management, and enterprise integrations. The API is BPMN 2.0 compliant and follows the OpenAPI specification with interactive Swagger UI documentation auto-generated by Swagger/L5-Swagger.\n\n\nContact Support:\n Email: info@processmaker.com",
+      "type": "text/plain"
+    }
+  }
+}

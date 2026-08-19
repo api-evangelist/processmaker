@@ -1,0 +1,617 @@
+{
+  "item": [
+    {
+      "id": "61a2b2b4-6b55-4486-afbc-ed145f832d24",
+      "name": "Notifications",
+      "description": {
+        "content": "Notification management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "eb85fe36-c3cb-4614-a658-13c1bba5af10",
+          "name": "Returns all notifications for the authenticated user",
+          "request": {
+            "name": "Returns all notifications for the authenticated user",
+            "description": {},
+            "url": {
+              "path": [
+                "notifications"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter by read/unread status"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by",
+                  "value": "<string>",
+                  "description": "Field to order results by"
+                },
+                {
+                  "disabled": false,
+                  "key": "order_direction",
+                  "value": "asc"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your ProcessMaker organization subdomain",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a6520b2f-5ed3-4214-8413-937699db4da0",
+              "name": "List of notifications",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_direction",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"type\": \"string\",\n      \"notifiable_type\": \"string\",\n      \"notifiable_id\": 7105,\n      \"data\": {},\n      \"read_at\": \"1957-11-29T08:56:30.361Z\",\n      \"id\": \"f8da2eec-be49-e415-d545-ce2b15e3a266\",\n      \"created_at\": \"1973-05-05T09:37:16.218Z\",\n      \"updated_at\": \"1994-07-05T07:16:31.205Z\"\n    },\n    {\n      \"type\": \"string\",\n      \"notifiable_type\": \"string\",\n      \"notifiable_id\": 1762,\n      \"data\": {},\n      \"read_at\": \"2003-03-20T11:13:26.054Z\",\n      \"id\": \"ab947027-eab2-d470-8d59-2fbb2203daa0\",\n      \"created_at\": \"1997-01-27T01:02:17.702Z\",\n      \"updated_at\": \"1976-08-10T09:34:19.326Z\"\n    }\n  ],\n  \"meta\": {\n    \"total\": 1297,\n    \"count\": 4978,\n    \"per_page\": 9977,\n    \"current_page\": 2618,\n    \"total_pages\": 4597,\n    \"sort_by\": \"string\",\n    \"sort_order\": \"string\",\n    \"search\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5f974d5f-00ea-4649-920e-dc64acb63200",
+          "name": "Create a new notification",
+          "request": {
+            "name": "Create a new notification",
+            "description": {},
+            "url": {
+              "path": [
+                "notifications"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your ProcessMaker organization subdomain",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"notifiable_type\": \"<string>\",\n  \"notifiable_id\": \"<integer>\",\n  \"data\": \"<object>\",\n  \"read_at\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bed24885-9127-4dff-b203-9510d6ae7f4f",
+              "name": "Created notification",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"notifiable_type\": \"<string>\",\n  \"notifiable_id\": \"<integer>\",\n  \"data\": \"<object>\",\n  \"read_at\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"<string>\",\n  \"notifiable_type\": \"<string>\",\n  \"notifiable_id\": \"<integer>\",\n  \"data\": \"<object>\",\n  \"read_at\": \"<dateTime>\",\n  \"id\": \"ae7191cb-aac5-18f2-3a8f-3a1f94b7fac7\",\n  \"created_at\": \"2009-04-13T20:59:38.402Z\",\n  \"updated_at\": \"2013-11-19T04:27:11.658Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8b8ea65b-baf0-4c6e-97d6-666b279119c8",
+          "name": "Get a single notification",
+          "request": {
+            "name": "Get a single notification",
+            "description": {},
+            "url": {
+              "path": [
+                "notifications",
+                ":notification_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "notification_id",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Your ProcessMaker organization subdomain",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9150dd31-7c44-4c71-a5be-801044686794",
+              "name": "Single notification",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    ":notification_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "notification_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"<string>\",\n  \"notifiable_type\": \"<string>\",\n  \"notifiable_id\": \"<integer>\",\n  \"data\": \"<object>\",\n  \"read_at\": \"<dateTime>\",\n  \"id\": \"ae7191cb-aac5-18f2-3a8f-3a1f94b7fac7\",\n  \"created_at\": \"2009-04-13T20:59:38.402Z\",\n  \"updated_at\": \"2013-11-19T04:27:11.658Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "35be7add-3927-4771-8bd4-2aabeefc0769",
+          "name": "Update a notification",
+          "request": {
+            "name": "Update a notification",
+            "description": {},
+            "url": {
+              "path": [
+                "notifications",
+                ":notification_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "notification_id",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Your ProcessMaker organization subdomain",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"notifiable_type\": \"<string>\",\n  \"notifiable_id\": \"<integer>\",\n  \"data\": \"<object>\",\n  \"read_at\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e1696251-1f9f-4171-89fa-143710ed9fa7",
+              "name": "No content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    ":notification_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "notification_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"notifiable_type\": \"<string>\",\n  \"notifiable_id\": \"<integer>\",\n  \"data\": \"<object>\",\n  \"read_at\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2f2a49b3-a633-4a5e-9882-803c4069f93b",
+          "name": "Delete a notification",
+          "request": {
+            "name": "Delete a notification",
+            "description": {},
+            "url": {
+              "path": [
+                "notifications",
+                ":notification_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "notification_id",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Your ProcessMaker organization subdomain",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "31550c82-fa61-46a6-ad6d-8dbb0ea64e58",
+              "name": "No content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "notifications",
+                    ":notification_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "notification_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your ProcessMaker organization subdomain",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "myorg",
+      "key": "organization"
+    },
+    {
+      "type": "string",
+      "value": "https://{{organization}}.processmaker.net/api/1.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f413b3e3-94ae-4494-ba64-2ab60852c628",
+    "name": "ProcessMaker Platform RESTful Environment Variables Notifications API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The ProcessMaker Platform RESTful API provides programmatic access to all platform functionality including process design, case management, task handling, user management, and enterprise integrations. The API is BPMN 2.0 compliant and follows the OpenAPI specification with interactive Swagger UI documentation auto-generated by Swagger/L5-Swagger.\n\n\nContact Support:\n Email: info@processmaker.com",
+      "type": "text/plain"
+    }
+  }
+}

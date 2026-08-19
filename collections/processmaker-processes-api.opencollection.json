@@ -1,0 +1,371 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ProcessMaker Platform RESTful Environment Variables Processes API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Processes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns all processes that the user has access to",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{organization}.processmaker.net/api/1.0/processes",
+            "params": [
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.\n"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Field to order results by"
+              },
+              {
+                "name": "order_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by status - ACTIVE or INACTIVE"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Include data from related models in payload. Comma separated list."
+              },
+              {
+                "name": "simplified_data_for_selector",
+                "value": "",
+                "type": "query",
+                "description": "Return simplified data for process selector UI"
+              }
+            ]
+          },
+          "docs": "Returns all processes that the user has access to"
+        },
+        {
+          "info": {
+            "name": "Save a new process",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{organization}.processmaker.net/api/1.0/processes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Save a new process"
+        },
+        {
+          "info": {
+            "name": "Get single process by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{organization}.processmaker.net/api/1.0/processes/:processId",
+            "params": [
+              {
+                "name": "processId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Include data from related models in payload. Comma separated list."
+              }
+            ]
+          },
+          "docs": "Get single process by ID"
+        },
+        {
+          "info": {
+            "name": "Update a process",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{organization}.processmaker.net/api/1.0/processes/:processId",
+            "params": [
+              {
+                "name": "processId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a process"
+        },
+        {
+          "info": {
+            "name": "Delete a process",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{organization}.processmaker.net/api/1.0/processes/:processId",
+            "params": [
+              {
+                "name": "processId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a process"
+        },
+        {
+          "info": {
+            "name": "Update a draft process",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{organization}.processmaker.net/api/1.0/processes/:processId/draft",
+            "params": [
+              {
+                "name": "processId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a draft process"
+        },
+        {
+          "info": {
+            "name": "Restore an inactive process",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{organization}.processmaker.net/api/1.0/processes/:processId/restore",
+            "params": [
+              {
+                "name": "processId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Restore an inactive process"
+        },
+        {
+          "info": {
+            "name": "Export a single process by ID and return a URL to download it",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{organization}.processmaker.net/api/1.0/processes/:processId/export",
+            "params": [
+              {
+                "name": "processId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Export a single process by ID and return a URL to download it"
+        },
+        {
+          "info": {
+            "name": "Import a new process",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{organization}.processmaker.net/api/1.0/processes/import",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Import a new process"
+        },
+        {
+          "info": {
+            "name": "Validate a process import file",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{organization}.processmaker.net/api/1.0/processes/import/validation",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Validate a process import file"
+        },
+        {
+          "info": {
+            "name": "Get start events of a process by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{organization}.processmaker.net/api/1.0/processes/:processId/start_events",
+            "params": [
+              {
+                "name": "processId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Include data from related models in payload. Comma separated list."
+              }
+            ]
+          },
+          "docs": "Get start events of a process by ID"
+        },
+        {
+          "info": {
+            "name": "Download the BPMN definition of a process",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{organization}.processmaker.net/api/1.0/processes/:processId/bpmn",
+            "params": [
+              {
+                "name": "processId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Download the BPMN definition of a process"
+        },
+        {
+          "info": {
+            "name": "Returns the list of processes that the user can start",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{organization}.processmaker.net/api/1.0/start_processes",
+            "params": [
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.\n"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Field to order results by"
+              },
+              {
+                "name": "order_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Include data from related models in payload. Comma separated list."
+              },
+              {
+                "name": "without_event_definitions",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns the list of processes that the user can start"
+        },
+        {
+          "info": {
+            "name": "Start a new process",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{organization}.processmaker.net/api/1.0/process_events/:process_id",
+            "params": [
+              {
+                "name": "process_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "event",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Start a new process"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

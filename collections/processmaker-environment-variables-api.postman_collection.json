@@ -1,0 +1,665 @@
+{
+  "item": [
+    {
+      "id": "4bc99d12-87a8-4359-8630-118758197096",
+      "name": "Environment Variables",
+      "description": {
+        "content": "Environment variable management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cb091c7e-47c4-4278-860c-b3bdc97b7c21",
+          "name": "Returns all environment variables",
+          "request": {
+            "name": "Returns all environment variables",
+            "description": {},
+            "url": {
+              "path": [
+                "environment-variables"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by",
+                  "value": "<string>",
+                  "description": "Field to order results by"
+                },
+                {
+                  "disabled": false,
+                  "key": "order_direction",
+                  "value": "asc"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your ProcessMaker organization subdomain",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6acea3f7-90de-4336-9453-eee26fc026fc",
+              "name": "List of environment variables",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "environment-variables"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_direction",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"value\": \"string\",\n      \"id\": 2899,\n      \"created_at\": \"2014-11-29T07:00:26.360Z\",\n      \"updated_at\": \"1960-02-29T17:57:35.569Z\"\n    },\n    {\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"value\": \"string\",\n      \"id\": 8940,\n      \"created_at\": \"1960-11-22T19:44:30.186Z\",\n      \"updated_at\": \"1947-10-17T13:02:41.315Z\"\n    }\n  ],\n  \"meta\": {\n    \"total\": 9745,\n    \"count\": 1365,\n    \"per_page\": 4070,\n    \"current_page\": 8474,\n    \"total_pages\": 5964,\n    \"sort_by\": \"string\",\n    \"sort_order\": \"string\",\n    \"search\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1ff63ed4-f46b-49e6-ac36-78f1734515c4",
+          "name": "Save a new environment variable",
+          "request": {
+            "name": "Save a new environment variable",
+            "description": {},
+            "url": {
+              "path": [
+                "environment-variables"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your ProcessMaker organization subdomain",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"value\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b3c6afd7-434a-4579-a6cd-7c6403dbfbe5",
+              "name": "Created environment variable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "environment-variables"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"value\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"value\": \"<string>\",\n  \"id\": 7642,\n  \"created_at\": \"2010-12-12T08:09:23.198Z\",\n  \"updated_at\": \"1970-09-08T06:56:15.140Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "af23a376-4ed9-45fd-83c3-defb2a8e88cf",
+          "name": "Get a single environment variable",
+          "request": {
+            "name": "Get a single environment variable",
+            "description": {},
+            "url": {
+              "path": [
+                "environment-variables",
+                ":environment_variable_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "environment_variable_id",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Your ProcessMaker organization subdomain",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8ae00c83-6efe-42f6-b782-895ca5210e68",
+              "name": "Single environment variable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "environment-variables",
+                    ":environment_variable_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "environment_variable_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"value\": \"<string>\",\n  \"id\": 7642,\n  \"created_at\": \"2010-12-12T08:09:23.198Z\",\n  \"updated_at\": \"1970-09-08T06:56:15.140Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "86fd04b6-af74-4115-a5f5-913b0e61d20a",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "environment-variables",
+                    ":environment_variable_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "environment_variable_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "336d5d94-aa88-451c-8c1f-828effe2c47c",
+          "name": "Update an environment variable",
+          "request": {
+            "name": "Update an environment variable",
+            "description": {},
+            "url": {
+              "path": [
+                "environment-variables",
+                ":environment_variable_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "environment_variable_id",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Your ProcessMaker organization subdomain",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"value\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a6a42f1b-6cfb-4842-86a9-d5986d70ae67",
+              "name": "No content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "environment-variables",
+                    ":environment_variable_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "environment_variable_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"value\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6354b038-b53d-4e02-b9f8-ded1d1db3927",
+          "name": "Delete an environment variable",
+          "request": {
+            "name": "Delete an environment variable",
+            "description": {},
+            "url": {
+              "path": [
+                "environment-variables",
+                ":environment_variable_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "environment_variable_id",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Your ProcessMaker organization subdomain",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aea88e2e-f5a8-48bc-9454-7a03c69ed04b",
+              "name": "No content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "environment-variables",
+                    ":environment_variable_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "environment_variable_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your ProcessMaker organization subdomain",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "myorg",
+      "key": "organization"
+    },
+    {
+      "type": "string",
+      "value": "https://{{organization}}.processmaker.net/api/1.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "bc1175ea-9827-4fe4-9038-5767b18b9e0b",
+    "name": "ProcessMaker Platform RESTful Environment Variables API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The ProcessMaker Platform RESTful API provides programmatic access to all platform functionality including process design, case management, task handling, user management, and enterprise integrations. The API is BPMN 2.0 compliant and follows the OpenAPI specification with interactive Swagger UI documentation auto-generated by Swagger/L5-Swagger.\n\n\nContact Support:\n Email: info@processmaker.com",
+      "type": "text/plain"
+    }
+  }
+}

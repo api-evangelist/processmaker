@@ -1,0 +1,265 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ProcessMaker Platform RESTful Environment Variables Screens API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Screens",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns all screens that the user has access to",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{organization}.processmaker.net/api/1.0/screens",
+            "params": [
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.\n"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Field to order results by"
+              },
+              {
+                "name": "order_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Include data from related models in payload. Comma separated list."
+              },
+              {
+                "name": "exclude",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated fields to exclude from response"
+              }
+            ]
+          },
+          "docs": "Returns all screens that the user has access to"
+        },
+        {
+          "info": {
+            "name": "Save a new screen",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{organization}.processmaker.net/api/1.0/screens",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Save a new screen"
+        },
+        {
+          "info": {
+            "name": "Get single screen by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{organization}.processmaker.net/api/1.0/screens/:screens_id",
+            "params": [
+              {
+                "name": "screens_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get single screen by ID"
+        },
+        {
+          "info": {
+            "name": "Update a screen",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{organization}.processmaker.net/api/1.0/screens/:screens_id",
+            "params": [
+              {
+                "name": "screens_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a screen"
+        },
+        {
+          "info": {
+            "name": "Delete a screen",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{organization}.processmaker.net/api/1.0/screens/:screens_id",
+            "params": [
+              {
+                "name": "screens_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a screen"
+        },
+        {
+          "info": {
+            "name": "Update a draft screen",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{organization}.processmaker.net/api/1.0/screens/:screens_id/draft",
+            "params": [
+              {
+                "name": "screens_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a draft screen"
+        },
+        {
+          "info": {
+            "name": "Duplicate a screen",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{organization}.processmaker.net/api/1.0/screens/:screens_id/duplicate",
+            "params": [
+              {
+                "name": "screens_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Duplicate a screen"
+        },
+        {
+          "info": {
+            "name": "Export a single screen by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{organization}.processmaker.net/api/1.0/screens/:screensId/export",
+            "params": [
+              {
+                "name": "screensId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Export a single screen by ID"
+        },
+        {
+          "info": {
+            "name": "Import a new screen",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{organization}.processmaker.net/api/1.0/screens/import",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Import a new screen"
+        },
+        {
+          "info": {
+            "name": "Preview a screen",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{organization}.processmaker.net/api/1.0/screens/preview",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Preview a screen"
+        },
+        {
+          "info": {
+            "name": "Translates the screen to the desired language",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{organization}.processmaker.net/api/1.0/screens/:screen_id/translate/:language",
+            "params": [
+              {
+                "name": "screen_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Translates the screen to the desired language"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

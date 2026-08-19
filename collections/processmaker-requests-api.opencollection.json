@@ -1,0 +1,158 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ProcessMaker Platform RESTful Environment Variables Requests API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Requests",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Returns all process requests",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{organization}.processmaker.net/api/1.0/requests",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Filter by status"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.\n"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Field to order results by"
+              },
+              {
+                "name": "order_direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Include data from related models in payload. Comma separated list."
+              }
+            ]
+          },
+          "docs": "Returns all process requests"
+        },
+        {
+          "info": {
+            "name": "Get single process request by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{organization}.processmaker.net/api/1.0/requests/:process_request_id",
+            "params": [
+              {
+                "name": "process_request_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Include data from related models in payload. Comma separated list."
+              }
+            ]
+          },
+          "docs": "Get single process request by ID"
+        },
+        {
+          "info": {
+            "name": "Update a process request",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{organization}.processmaker.net/api/1.0/requests/:process_request_id",
+            "params": [
+              {
+                "name": "process_request_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a process request"
+        },
+        {
+          "info": {
+            "name": "Delete a process request",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{organization}.processmaker.net/api/1.0/requests/:process_request_id",
+            "params": [
+              {
+                "name": "process_request_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a process request"
+        },
+        {
+          "info": {
+            "name": "Trigger an intermediate catch event in a process request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{organization}.processmaker.net/api/1.0/requests/:process_request_id/events/:event_id",
+            "params": [
+              {
+                "name": "process_request_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "event_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Trigger an intermediate catch event in a process request"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

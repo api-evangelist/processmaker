@@ -1,0 +1,2065 @@
+{
+  "item": [
+    {
+      "id": "51ce57d3-cb91-4cd9-9e3a-b9fb81e30621",
+      "name": "Processes",
+      "description": {
+        "content": "BPMN 2.0 process design and management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "684629ae-bf1b-490e-896c-1ad4aeed0e22",
+          "name": "Returns all processes that the user has access to",
+          "request": {
+            "name": "Returns all processes that the user has access to",
+            "description": {},
+            "url": {
+              "path": [
+                "processes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by",
+                  "value": "<string>",
+                  "description": "Field to order results by"
+                },
+                {
+                  "disabled": false,
+                  "key": "order_direction",
+                  "value": "asc"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter by status - ACTIVE or INACTIVE"
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "",
+                  "description": "Include data from related models in payload. Comma separated list."
+                },
+                {
+                  "disabled": false,
+                  "key": "simplified_data_for_selector",
+                  "value": "<boolean>",
+                  "description": "Return simplified data for process selector UI"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your ProcessMaker organization subdomain",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "42defbc5-6d3d-4694-ba6e-9220d7732418",
+              "name": "List of processes",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "processes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_direction",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": ""
+                    },
+                    {
+                      "key": "simplified_data_for_selector",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"name\": \"string\",\n      \"status\": \"INACTIVE\",\n      \"bpmn\": \"string\",\n      \"process_category_id\": 1855,\n      \"description\": \"string\",\n      \"manager_id\": 5603,\n      \"cancel_screen_id\": 2230,\n      \"request_detail_screen_id\": 4029,\n      \"is_valid\": false,\n      \"warnings\": [\n        \"string\",\n        \"string\"\n      ],\n      \"id\": 3702,\n      \"user_id\": 8593,\n      \"created_at\": \"1987-02-15T05:05:45.804Z\",\n      \"updated_at\": \"1982-11-17T21:26:35.995Z\",\n      \"deleted_at\": \"2010-01-05T00:14:05.785Z\"\n    },\n    {\n      \"name\": \"string\",\n      \"status\": \"INACTIVE\",\n      \"bpmn\": \"string\",\n      \"process_category_id\": 9400,\n      \"description\": \"string\",\n      \"manager_id\": 5960,\n      \"cancel_screen_id\": 9607,\n      \"request_detail_screen_id\": 8994,\n      \"is_valid\": false,\n      \"warnings\": [\n        \"string\",\n        \"string\"\n      ],\n      \"id\": 1108,\n      \"user_id\": 7956,\n      \"created_at\": \"2003-01-02T00:11:42.192Z\",\n      \"updated_at\": \"1971-10-27T10:25:22.972Z\",\n      \"deleted_at\": \"2024-06-27T17:01:03.439Z\"\n    }\n  ],\n  \"meta\": {\n    \"total\": 451,\n    \"count\": 6234,\n    \"per_page\": 3506,\n    \"current_page\": 7283,\n    \"total_pages\": 5740,\n    \"sort_by\": \"string\",\n    \"sort_order\": \"string\",\n    \"search\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "00b086da-17be-463e-b69f-c8afb3b01a8b",
+          "name": "Save a new process",
+          "request": {
+            "name": "Save a new process",
+            "description": {},
+            "url": {
+              "path": [
+                "processes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your ProcessMaker organization subdomain",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"bpmn\": \"<string>\",\n  \"process_category_id\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"manager_id\": \"<integer>\",\n  \"cancel_screen_id\": \"<integer>\",\n  \"request_detail_screen_id\": \"<integer>\",\n  \"is_valid\": \"<boolean>\",\n  \"warnings\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e83f7eb1-e131-43bb-8247-e21783daeeaa",
+              "name": "Process created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "processes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"bpmn\": \"<string>\",\n  \"process_category_id\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"manager_id\": \"<integer>\",\n  \"cancel_screen_id\": \"<integer>\",\n  \"request_detail_screen_id\": \"<integer>\",\n  \"is_valid\": \"<boolean>\",\n  \"warnings\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"bpmn\": \"<string>\",\n  \"process_category_id\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"manager_id\": \"<integer>\",\n  \"cancel_screen_id\": \"<integer>\",\n  \"request_detail_screen_id\": \"<integer>\",\n  \"is_valid\": \"<boolean>\",\n  \"warnings\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": 460,\n  \"user_id\": 2959,\n  \"created_at\": \"2023-10-08T01:42:51.128Z\",\n  \"updated_at\": \"1974-02-20T05:15:08.637Z\",\n  \"deleted_at\": \"1963-03-05T05:34:11.976Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4355c15c-75c8-463f-a6a8-a95c626f44d5",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "processes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"bpmn\": \"<string>\",\n  \"process_category_id\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"manager_id\": \"<integer>\",\n  \"cancel_screen_id\": \"<integer>\",\n  \"request_detail_screen_id\": \"<integer>\",\n  \"is_valid\": \"<boolean>\",\n  \"warnings\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"errors\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4b3c57c2-100c-45b6-b1b3-4363e49f09d2",
+          "name": "Get single process by ID",
+          "request": {
+            "name": "Get single process by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "processes",
+                ":processId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "",
+                  "description": "Include data from related models in payload. Comma separated list."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "processId",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Your ProcessMaker organization subdomain",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2108424b-f63a-4371-a9df-58199cd849b5",
+              "name": "Single process resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "processes",
+                    ":processId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": ""
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "processId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"bpmn\": \"<string>\",\n  \"process_category_id\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"manager_id\": \"<integer>\",\n  \"cancel_screen_id\": \"<integer>\",\n  \"request_detail_screen_id\": \"<integer>\",\n  \"is_valid\": \"<boolean>\",\n  \"warnings\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": 460,\n  \"user_id\": 2959,\n  \"created_at\": \"2023-10-08T01:42:51.128Z\",\n  \"updated_at\": \"1974-02-20T05:15:08.637Z\",\n  \"deleted_at\": \"1963-03-05T05:34:11.976Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5f060c23-68cf-4b70-8ac2-07737b987f3c",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "processes",
+                    ":processId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": ""
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "processId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ef620406-91bb-4c53-9ab7-a1415d166e59",
+          "name": "Update a process",
+          "request": {
+            "name": "Update a process",
+            "description": {},
+            "url": {
+              "path": [
+                "processes",
+                ":processId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "processId",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Your ProcessMaker organization subdomain",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"bpmn\": \"<string>\",\n  \"process_category_id\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"manager_id\": \"<integer>\",\n  \"cancel_screen_id\": \"<integer>\",\n  \"request_detail_screen_id\": \"<integer>\",\n  \"is_valid\": \"<boolean>\",\n  \"warnings\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6e0e1abe-0b5e-4bd2-8029-6df6de1ba324",
+              "name": "Updated process resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "processes",
+                    ":processId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "processId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"bpmn\": \"<string>\",\n  \"process_category_id\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"manager_id\": \"<integer>\",\n  \"cancel_screen_id\": \"<integer>\",\n  \"request_detail_screen_id\": \"<integer>\",\n  \"is_valid\": \"<boolean>\",\n  \"warnings\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"bpmn\": \"<string>\",\n  \"process_category_id\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"manager_id\": \"<integer>\",\n  \"cancel_screen_id\": \"<integer>\",\n  \"request_detail_screen_id\": \"<integer>\",\n  \"is_valid\": \"<boolean>\",\n  \"warnings\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": 460,\n  \"user_id\": 2959,\n  \"created_at\": \"2023-10-08T01:42:51.128Z\",\n  \"updated_at\": \"1974-02-20T05:15:08.637Z\",\n  \"deleted_at\": \"1963-03-05T05:34:11.976Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7d15003b-ccba-4beb-bd54-85d62dc14b19",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "processes",
+                    ":processId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "processId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"bpmn\": \"<string>\",\n  \"process_category_id\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"manager_id\": \"<integer>\",\n  \"cancel_screen_id\": \"<integer>\",\n  \"request_detail_screen_id\": \"<integer>\",\n  \"is_valid\": \"<boolean>\",\n  \"warnings\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6c95cb6f-62b0-4154-8cfd-973a6151ab1d",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "processes",
+                    ":processId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "processId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"bpmn\": \"<string>\",\n  \"process_category_id\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"manager_id\": \"<integer>\",\n  \"cancel_screen_id\": \"<integer>\",\n  \"request_detail_screen_id\": \"<integer>\",\n  \"is_valid\": \"<boolean>\",\n  \"warnings\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"errors\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "32724f39-9b16-43de-93a5-7f6c1ec62da7",
+          "name": "Delete a process",
+          "request": {
+            "name": "Delete a process",
+            "description": {},
+            "url": {
+              "path": [
+                "processes",
+                ":processId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "processId",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Your ProcessMaker organization subdomain",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d99f278c-8154-4cc3-a09f-29693a6733ba",
+              "name": "No content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "processes",
+                    ":processId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "processId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4820cf88-443f-4513-a640-a2096a3f684a",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "processes",
+                    ":processId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "processId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a317f482-c69f-4555-950c-944414dbc647",
+          "name": "Update a draft process",
+          "request": {
+            "name": "Update a draft process",
+            "description": {},
+            "url": {
+              "path": [
+                "processes",
+                ":processId",
+                "draft"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "processId",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Your ProcessMaker organization subdomain",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"bpmn\": \"<string>\",\n  \"process_category_id\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"manager_id\": \"<integer>\",\n  \"cancel_screen_id\": \"<integer>\",\n  \"request_detail_screen_id\": \"<integer>\",\n  \"is_valid\": \"<boolean>\",\n  \"warnings\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "73f74f48-b353-4f9f-a3a4-979daab500ed",
+              "name": "Updated draft process resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "processes",
+                    ":processId",
+                    "draft"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "processId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"bpmn\": \"<string>\",\n  \"process_category_id\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"manager_id\": \"<integer>\",\n  \"cancel_screen_id\": \"<integer>\",\n  \"request_detail_screen_id\": \"<integer>\",\n  \"is_valid\": \"<boolean>\",\n  \"warnings\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"bpmn\": \"<string>\",\n  \"process_category_id\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"manager_id\": \"<integer>\",\n  \"cancel_screen_id\": \"<integer>\",\n  \"request_detail_screen_id\": \"<integer>\",\n  \"is_valid\": \"<boolean>\",\n  \"warnings\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": 460,\n  \"user_id\": 2959,\n  \"created_at\": \"2023-10-08T01:42:51.128Z\",\n  \"updated_at\": \"1974-02-20T05:15:08.637Z\",\n  \"deleted_at\": \"1963-03-05T05:34:11.976Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5dd0a8b8-8399-44f0-b45d-f106ec447ffa",
+          "name": "Restore an inactive process",
+          "request": {
+            "name": "Restore an inactive process",
+            "description": {},
+            "url": {
+              "path": [
+                "processes",
+                ":processId",
+                "restore"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "processId",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Your ProcessMaker organization subdomain",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c74996db-ee95-44f9-ab5d-c365a5fbe5db",
+              "name": "Restored process resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "processes",
+                    ":processId",
+                    "restore"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "processId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"bpmn\": \"<string>\",\n  \"process_category_id\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"manager_id\": \"<integer>\",\n  \"cancel_screen_id\": \"<integer>\",\n  \"request_detail_screen_id\": \"<integer>\",\n  \"is_valid\": \"<boolean>\",\n  \"warnings\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": 460,\n  \"user_id\": 2959,\n  \"created_at\": \"2023-10-08T01:42:51.128Z\",\n  \"updated_at\": \"1974-02-20T05:15:08.637Z\",\n  \"deleted_at\": \"1963-03-05T05:34:11.976Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1cab8e44-b4e4-420d-ac4b-6a2cfb1b874a",
+          "name": "Export a single process by ID and return a URL to download it",
+          "request": {
+            "name": "Export a single process by ID and return a URL to download it",
+            "description": {},
+            "url": {
+              "path": [
+                "processes",
+                ":processId",
+                "export"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "processId",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Your ProcessMaker organization subdomain",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1679959a-f19d-4425-a583-f2a99eeb8e16",
+              "name": "Export URL",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "processes",
+                    ":processId",
+                    "export"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "processId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"url\": \"http://iGpDjpHjBuYxohlclrEzMbvS.ezx6YWKYeT3+DeZSBKkaglJRRWmwo9AIMqemGAmOgDXykXNK\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0acda903-61f6-41eb-8b09-359387517fb0",
+          "name": "Import a new process",
+          "request": {
+            "name": "Import a new process",
+            "description": {},
+            "url": {
+              "path": [
+                "processes",
+                "import"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your ProcessMaker organization subdomain",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "dfcc7d2d-80cc-4a85-82e2-07061288bc5f",
+              "name": "Process import result",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "processes",
+                    "import"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": {},\n  \"process\": {\n    \"name\": \"<string>\",\n    \"status\": \"<string>\",\n    \"bpmn\": \"<string>\",\n    \"process_category_id\": \"<integer>\",\n    \"description\": \"<string>\",\n    \"manager_id\": \"<integer>\",\n    \"cancel_screen_id\": \"<integer>\",\n    \"request_detail_screen_id\": \"<integer>\",\n    \"is_valid\": \"<boolean>\",\n    \"warnings\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"id\": 2167,\n    \"user_id\": 7067,\n    \"created_at\": \"1964-10-04T02:15:29.963Z\",\n    \"updated_at\": \"2025-02-02T03:10:30.868Z\",\n    \"deleted_at\": \"2015-02-07T03:04:57.210Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4c0f9034-cd51-4b0d-8ec8-732873476195",
+          "name": "Validate a process import file",
+          "request": {
+            "name": "Validate a process import file",
+            "description": {},
+            "url": {
+              "path": [
+                "processes",
+                "import",
+                "validation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your ProcessMaker organization subdomain",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "57c6f94e-22b6-4ff1-9a79-cca274ae4963",
+              "name": "Import validation result",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "processes",
+                    "import",
+                    "validation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "type": "file"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": {},\n  \"process\": {\n    \"name\": \"<string>\",\n    \"status\": \"<string>\",\n    \"bpmn\": \"<string>\",\n    \"process_category_id\": \"<integer>\",\n    \"description\": \"<string>\",\n    \"manager_id\": \"<integer>\",\n    \"cancel_screen_id\": \"<integer>\",\n    \"request_detail_screen_id\": \"<integer>\",\n    \"is_valid\": \"<boolean>\",\n    \"warnings\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"id\": 8708,\n    \"user_id\": 7060,\n    \"created_at\": \"1996-06-11T19:11:07.586Z\",\n    \"updated_at\": \"1983-08-14T12:07:44.499Z\",\n    \"deleted_at\": \"1982-04-24T02:20:59.217Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "91fee763-461c-40ce-a2de-a2f89415a5c6",
+          "name": "Get start events of a process by ID",
+          "request": {
+            "name": "Get start events of a process by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "processes",
+                ":processId",
+                "start_events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "",
+                  "description": "Include data from related models in payload. Comma separated list."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "processId",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Your ProcessMaker organization subdomain",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b8bfc652-4fa5-4b4c-b94b-fd4b49c237b6",
+              "name": "Collection of process start events",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "processes",
+                    ":processId",
+                    "start_events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": ""
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "processId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "337af042-90c7-49ae-9193-acd3369327da",
+          "name": "Download the BPMN definition of a process",
+          "request": {
+            "name": "Download the BPMN definition of a process",
+            "description": {},
+            "url": {
+              "path": [
+                "processes",
+                ":processId",
+                "bpmn"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "processId",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Your ProcessMaker organization subdomain",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "34ca05c8-92f9-4d09-be40-0f71237989e5",
+              "name": "BPMN download URL",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "processes",
+                    ":processId",
+                    "bpmn"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "processId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"url\": \"http://iGpDjpHjBuYxohlclrEzMbvS.ezx6YWKYeT3+DeZSBKkaglJRRWmwo9AIMqemGAmOgDXykXNK\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "92b0c8be-c5fc-4482-950f-8a2531fb2382",
+          "name": "Returns the list of processes that the user can start",
+          "request": {
+            "name": "Returns the list of processes that the user can start",
+            "description": {},
+            "url": {
+              "path": [
+                "start_processes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by",
+                  "value": "<string>",
+                  "description": "Field to order results by"
+                },
+                {
+                  "disabled": false,
+                  "key": "order_direction",
+                  "value": "asc"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "",
+                  "description": "Include data from related models in payload. Comma separated list."
+                },
+                {
+                  "disabled": false,
+                  "key": "without_event_definitions",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your ProcessMaker organization subdomain",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "00196ed1-7ac5-4b1c-a763-7ef68b506935",
+              "name": "Processes with start events",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "start_processes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_direction",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "include",
+                      "value": ""
+                    },
+                    {
+                      "key": "without_event_definitions",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"bpmn\": \"<string>\",\n      \"process_category_id\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"manager_id\": \"<integer>\",\n      \"cancel_screen_id\": \"<integer>\",\n      \"request_detail_screen_id\": \"<integer>\",\n      \"is_valid\": \"<boolean>\",\n      \"warnings\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"id\": 9237,\n      \"user_id\": 9321,\n      \"created_at\": \"2025-04-01T21:24:27.332Z\",\n      \"updated_at\": \"2006-04-16T18:54:27.894Z\",\n      \"deleted_at\": \"1960-07-05T21:02:36.745Z\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"bpmn\": \"<string>\",\n      \"process_category_id\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"manager_id\": \"<integer>\",\n      \"cancel_screen_id\": \"<integer>\",\n      \"request_detail_screen_id\": \"<integer>\",\n      \"is_valid\": \"<boolean>\",\n      \"warnings\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"id\": 9413,\n      \"user_id\": 7550,\n      \"created_at\": \"1998-01-28T18:52:54.026Z\",\n      \"updated_at\": \"2004-10-17T01:55:36.309Z\",\n      \"deleted_at\": \"1972-10-20T03:14:17.212Z\"\n    }\n  ],\n  \"meta\": {\n    \"total\": 3314,\n    \"count\": 8109,\n    \"per_page\": 8732,\n    \"current_page\": 6136,\n    \"total_pages\": 5561,\n    \"sort_by\": \"string\",\n    \"sort_order\": \"string\",\n    \"search\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "674cf135-4a01-49a3-a6a9-ff2460735d5c",
+          "name": "Start a new process",
+          "request": {
+            "name": "Start a new process",
+            "description": {},
+            "url": {
+              "path": [
+                "process_events",
+                ":process_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "event",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "process_id",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "Your ProcessMaker organization subdomain",
+                  "type": "any",
+                  "value": "{{organization}}",
+                  "key": "organization"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "691c956b-0485-49b3-bb4c-aeef61fd24b1",
+              "name": "New process request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "process_events",
+                    ":process_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "event",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "process_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "Your ProcessMaker organization subdomain",
+                      "type": "any",
+                      "value": "{{organization}}",
+                      "key": "organization"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ACTIVE\",\n  \"data\": {},\n  \"name\": \"string\",\n  \"id\": 413,\n  \"process_id\": 7057,\n  \"user_id\": 9282,\n  \"process_collaboration_id\": 7488,\n  \"callable_id\": \"string\",\n  \"created_at\": \"1989-02-13T02:47:31.632Z\",\n  \"updated_at\": \"2012-03-02T20:14:22.219Z\",\n  \"completed_at\": \"1994-02-07T07:16:33.814Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your ProcessMaker organization subdomain",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "myorg",
+      "key": "organization"
+    },
+    {
+      "type": "string",
+      "value": "https://{{organization}}.processmaker.net/api/1.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f4d4609e-4bd2-4d93-b45e-2ad672598546",
+    "name": "ProcessMaker Platform RESTful Environment Variables Processes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The ProcessMaker Platform RESTful API provides programmatic access to all platform functionality including process design, case management, task handling, user management, and enterprise integrations. The API is BPMN 2.0 compliant and follows the OpenAPI specification with interactive Swagger UI documentation auto-generated by Swagger/L5-Swagger.\n\n\nContact Support:\n Email: info@processmaker.com",
+      "type": "text/plain"
+    }
+  }
+}
