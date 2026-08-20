@@ -23,6 +23,17 @@ type: Index
 tags:
   - BPM
   - Business Process Management
+  - Workflow-Automation
+  - BPMN 2.0
+  - Low-Code
+  - Intelligent Automation
+  - Process Design
+  - Case Management
+  - Task Management
+  - Enterprise Integration
+tags_raw:
+  - BPM
+  - Business Process Management
   - Workflow Automation
   - BPMN 2.0
   - Low-Code
@@ -52,6 +63,8 @@ apis:
   humanURL: https://processmaker.gitbook.io/developer-documentation
   baseURL: https://{organization}.processmaker.net/api
   tags:
+  - File
+  tags_raw:
   - Files
   properties:
   - type: OpenAPI
@@ -66,6 +79,8 @@ apis:
   humanURL: https://processmaker.gitbook.io/developer-documentation
   baseURL: https://{organization}.processmaker.net/api
   tags:
+  - Group
+  tags_raw:
   - Groups
   properties:
   - type: OpenAPI
@@ -80,6 +95,8 @@ apis:
   humanURL: https://processmaker.gitbook.io/developer-documentation
   baseURL: https://{organization}.processmaker.net/api
   tags:
+  - Notification
+  tags_raw:
   - Notifications
   properties:
   - type: OpenAPI
@@ -150,6 +167,8 @@ apis:
   humanURL: https://processmaker.gitbook.io/developer-documentation
   baseURL: https://{organization}.processmaker.net/api
   tags:
+  - Task
+  tags_raw:
   - Tasks
   properties:
   - type: OpenAPI
@@ -164,6 +183,8 @@ apis:
   humanURL: https://processmaker.gitbook.io/developer-documentation
   baseURL: https://{organization}.processmaker.net/api
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
