@@ -165,6 +165,12 @@ paths:
                 type: object
 components:
   parameters:
+    per_page:
+      name: per_page
+      in: query
+      schema:
+        type: integer
+        default: 10
     include:
       name: include
       in: query
@@ -172,35 +178,6 @@ components:
       schema:
         type: string
         default: ''
-    status:
-      name: status
-      in: query
-      description: Filter by status - ACTIVE or INACTIVE
-      schema:
-        type: string
-        enum:
-        - ACTIVE
-        - INACTIVE
-    order_by:
-      name: order_by
-      in: query
-      description: Field to order results by
-      schema:
-        type: string
-    per_page:
-      name: per_page
-      in: query
-      schema:
-        type: integer
-        default: 10
-    filter:
-      name: filter
-      in: query
-      description: 'Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.
-
-        '
-      schema:
-        type: string
     order_direction:
       name: order_direction
       in: query
@@ -210,16 +187,30 @@ components:
         - asc
         - desc
         default: asc
+    order_by:
+      name: order_by
+      in: query
+      description: Field to order results by
+      schema:
+        type: string
+    status:
+      name: status
+      in: query
+      description: Filter by status - ACTIVE or INACTIVE
+      schema:
+        type: string
+        enum:
+        - ACTIVE
+        - INACTIVE
+    filter:
+      name: filter
+      in: query
+      description: 'Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.
+
+        '
+      schema:
+        type: string
   responses:
-    '404':
-      description: Not Found
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              error:
-                type: string
     '422':
       description: Unprocessable Entity
       content:
@@ -231,6 +222,15 @@ components:
                 type: string
               errors:
                 type: object
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
   schemas:
     UserEditable:
       type: object

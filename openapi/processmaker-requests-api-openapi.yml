@@ -132,6 +132,12 @@ paths:
           description: Event triggered successfully
 components:
   parameters:
+    per_page:
+      name: per_page
+      in: query
+      schema:
+        type: integer
+        default: 10
     include:
       name: include
       in: query
@@ -139,26 +145,6 @@ components:
       schema:
         type: string
         default: ''
-    order_by:
-      name: order_by
-      in: query
-      description: Field to order results by
-      schema:
-        type: string
-    per_page:
-      name: per_page
-      in: query
-      schema:
-        type: integer
-        default: 10
-    filter:
-      name: filter
-      in: query
-      description: 'Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.
-
-        '
-      schema:
-        type: string
     order_direction:
       name: order_direction
       in: query
@@ -168,31 +154,21 @@ components:
         - asc
         - desc
         default: asc
-  responses:
-    '404':
-      description: Not Found
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              error:
-                type: string
+    order_by:
+      name: order_by
+      in: query
+      description: Field to order results by
+      schema:
+        type: string
+    filter:
+      name: filter
+      in: query
+      description: 'Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.
+
+        '
+      schema:
+        type: string
   schemas:
-    ProcessRequestEditable:
-      type: object
-      properties:
-        status:
-          type: string
-          enum:
-          - ACTIVE
-          - COMPLETED
-          - ERROR
-          - CANCELED
-        data:
-          type: object
-        name:
-          type: string
     ProcessRequest:
       allOf:
       - $ref: '#/components/schemas/ProcessRequestEditable'
@@ -230,6 +206,20 @@ components:
             $ref: '#/components/schemas/ProcessRequest'
         meta:
           $ref: '#/components/schemas/Metadata'
+    ProcessRequestEditable:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - ACTIVE
+          - COMPLETED
+          - ERROR
+          - CANCELED
+        data:
+          type: object
+        name:
+          type: string
     Metadata:
       type: object
       properties:
@@ -249,6 +239,16 @@ components:
           type: string
         search:
           type: string
+  responses:
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
   securitySchemes:
     bearerAuth:
       type: http

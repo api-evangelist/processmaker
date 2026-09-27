@@ -165,73 +165,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/GroupCollection'
 components:
-  parameters:
-    include:
-      name: include
-      in: query
-      description: Include data from related models in payload. Comma separated list.
-      schema:
-        type: string
-        default: ''
-    status:
-      name: status
-      in: query
-      description: Filter by status - ACTIVE or INACTIVE
-      schema:
-        type: string
-        enum:
-        - ACTIVE
-        - INACTIVE
-    order_by:
-      name: order_by
-      in: query
-      description: Field to order results by
-      schema:
-        type: string
-    per_page:
-      name: per_page
-      in: query
-      schema:
-        type: integer
-        default: 10
-    filter:
-      name: filter
-      in: query
-      description: 'Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.
-
-        '
-      schema:
-        type: string
-    order_direction:
-      name: order_direction
-      in: query
-      schema:
-        type: string
-        enum:
-        - asc
-        - desc
-        default: asc
-  responses:
-    '404':
-      description: Not Found
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              error:
-                type: string
-    '422':
-      description: Unprocessable Entity
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-              errors:
-                type: object
   schemas:
     Group:
       allOf:
@@ -246,6 +179,15 @@ components:
           updated_at:
             type: string
             format: date-time
+    GroupCollection:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Group'
+        meta:
+          $ref: '#/components/schemas/Metadata'
     UserEditable:
       type: object
       required:
@@ -302,6 +244,21 @@ components:
           - string
           - 'null'
           format: date-time
+    GroupEditable:
+      type: object
+      required:
+      - name
+      - status
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        status:
+          type: string
+          enum:
+          - ACTIVE
+          - INACTIVE
     UserCollection:
       type: object
       properties:
@@ -309,15 +266,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/User'
-        meta:
-          $ref: '#/components/schemas/Metadata'
-    GroupCollection:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Group'
         meta:
           $ref: '#/components/schemas/Metadata'
     User:
@@ -361,21 +309,73 @@ components:
           type: string
         search:
           type: string
-    GroupEditable:
-      type: object
-      required:
-      - name
-      - status
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        status:
-          type: string
-          enum:
-          - ACTIVE
-          - INACTIVE
+  parameters:
+    per_page:
+      name: per_page
+      in: query
+      schema:
+        type: integer
+        default: 10
+    include:
+      name: include
+      in: query
+      description: Include data from related models in payload. Comma separated list.
+      schema:
+        type: string
+        default: ''
+    order_direction:
+      name: order_direction
+      in: query
+      schema:
+        type: string
+        enum:
+        - asc
+        - desc
+        default: asc
+    status:
+      name: status
+      in: query
+      description: Filter by status - ACTIVE or INACTIVE
+      schema:
+        type: string
+        enum:
+        - ACTIVE
+        - INACTIVE
+    order_by:
+      name: order_by
+      in: query
+      description: Field to order results by
+      schema:
+        type: string
+    filter:
+      name: filter
+      in: query
+      description: 'Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.
+
+        '
+      schema:
+        type: string
+  responses:
+    '422':
+      description: Unprocessable Entity
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+              errors:
+                type: object
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
   securitySchemes:
     bearerAuth:
       type: http

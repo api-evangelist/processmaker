@@ -348,6 +348,12 @@ paths:
                 $ref: '#/components/schemas/ProcessRequest'
 components:
   parameters:
+    per_page:
+      name: per_page
+      in: query
+      schema:
+        type: integer
+        default: 10
     include:
       name: include
       in: query
@@ -355,6 +361,15 @@ components:
       schema:
         type: string
         default: ''
+    order_direction:
+      name: order_direction
+      in: query
+      schema:
+        type: string
+        enum:
+        - asc
+        - desc
+        default: asc
     status:
       name: status
       in: query
@@ -370,12 +385,6 @@ components:
       description: Field to order results by
       schema:
         type: string
-    per_page:
-      name: per_page
-      in: query
-      schema:
-        type: integer
-        default: 10
     filter:
       name: filter
       in: query
@@ -384,51 +393,64 @@ components:
         '
       schema:
         type: string
-    order_direction:
-      name: order_direction
-      in: query
-      schema:
-        type: string
-        enum:
-        - asc
-        - desc
-        default: asc
-  responses:
-    '404':
-      description: Not Found
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              error:
-                type: string
-    '422':
-      description: Unprocessable Entity
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-              errors:
-                type: object
   schemas:
-    ProcessRequestEditable:
+    ProcessRequest:
+      allOf:
+      - $ref: '#/components/schemas/ProcessRequestEditable'
+      - type: object
+        properties:
+          id:
+            type: integer
+          process_id:
+            type: integer
+          user_id:
+            type: integer
+          process_collaboration_id:
+            type:
+            - integer
+            - 'null'
+          callable_id:
+            type: string
+          created_at:
+            type: string
+            format: date-time
+          updated_at:
+            type: string
+            format: date-time
+          completed_at:
+            type:
+            - string
+            - 'null'
+            format: date-time
+    ProcessCollection:
       type: object
       properties:
-        status:
-          type: string
-          enum:
-          - ACTIVE
-          - COMPLETED
-          - ERROR
-          - CANCELED
         data:
-          type: object
-        name:
-          type: string
+          type: array
+          items:
+            $ref: '#/components/schemas/Process'
+        meta:
+          $ref: '#/components/schemas/Metadata'
+    Process:
+      allOf:
+      - $ref: '#/components/schemas/ProcessEditable'
+      - type: object
+        properties:
+          id:
+            type: integer
+          user_id:
+            type: integer
+          created_at:
+            type: string
+            format: date-time
+          updated_at:
+            type: string
+            format: date-time
+          deleted_at:
+            type:
+            - string
+            - 'null'
+            format: date-time
     ProcessImport:
       type: object
       properties:
@@ -474,63 +496,20 @@ components:
           type: array
           items:
             type: string
-    ProcessCollection:
+    ProcessRequestEditable:
       type: object
       properties:
+        status:
+          type: string
+          enum:
+          - ACTIVE
+          - COMPLETED
+          - ERROR
+          - CANCELED
         data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Process'
-        meta:
-          $ref: '#/components/schemas/Metadata'
-    ProcessRequest:
-      allOf:
-      - $ref: '#/components/schemas/ProcessRequestEditable'
-      - type: object
-        properties:
-          id:
-            type: integer
-          process_id:
-            type: integer
-          user_id:
-            type: integer
-          process_collaboration_id:
-            type:
-            - integer
-            - 'null'
-          callable_id:
-            type: string
-          created_at:
-            type: string
-            format: date-time
-          updated_at:
-            type: string
-            format: date-time
-          completed_at:
-            type:
-            - string
-            - 'null'
-            format: date-time
-    Process:
-      allOf:
-      - $ref: '#/components/schemas/ProcessEditable'
-      - type: object
-        properties:
-          id:
-            type: integer
-          user_id:
-            type: integer
-          created_at:
-            type: string
-            format: date-time
-          updated_at:
-            type: string
-            format: date-time
-          deleted_at:
-            type:
-            - string
-            - 'null'
-            format: date-time
+          type: object
+        name:
+          type: string
     Metadata:
       type: object
       properties:
@@ -550,6 +529,27 @@ components:
           type: string
         search:
           type: string
+  responses:
+    '422':
+      description: Unprocessable Entity
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+              errors:
+                type: object
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
   securitySchemes:
     bearerAuth:
       type: http

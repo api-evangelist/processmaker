@@ -38,7 +38,7 @@ specificationVersion: '0.23'
 type: Index
 tags:
   - Business Process Management
-  - Workflow-Automation
+  - Workflow Automation
   - BPMN 2.0
   - Low-Code
   - Intelligent Automation
@@ -57,6 +57,7 @@ tags_raw:
   - Case Management
   - Task Management
   - Enterprise Integration
+  - Workflow-Automation
 apis:
 - aid: processmaker:processmaker-environment-variables-api
   name: ProcessMaker Environment Variables API

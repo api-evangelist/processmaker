@@ -262,6 +262,12 @@ paths:
                 $ref: '#/components/schemas/Screen'
 components:
   parameters:
+    per_page:
+      name: per_page
+      in: query
+      schema:
+        type: integer
+        default: 10
     include:
       name: include
       in: query
@@ -269,26 +275,6 @@ components:
       schema:
         type: string
         default: ''
-    order_by:
-      name: order_by
-      in: query
-      description: Field to order results by
-      schema:
-        type: string
-    per_page:
-      name: per_page
-      in: query
-      schema:
-        type: integer
-        default: 10
-    filter:
-      name: filter
-      in: query
-      description: 'Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.
-
-        '
-      schema:
-        type: string
     order_direction:
       name: order_direction
       in: query
@@ -298,7 +284,50 @@ components:
         - asc
         - desc
         default: asc
+    order_by:
+      name: order_by
+      in: query
+      description: Field to order results by
+      schema:
+        type: string
+    filter:
+      name: filter
+      in: query
+      description: 'Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.
+
+        '
+      schema:
+        type: string
   schemas:
+    Screen:
+      allOf:
+      - $ref: '#/components/schemas/ScreenEditable'
+      - type: object
+        properties:
+          id:
+            type: integer
+          user_id:
+            type: integer
+          created_at:
+            type: string
+            format: date-time
+          updated_at:
+            type: string
+            format: date-time
+          deleted_at:
+            type:
+            - string
+            - 'null'
+            format: date-time
+    ScreenCollection:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Screen'
+        meta:
+          $ref: '#/components/schemas/Metadata'
     ScreenEditable:
       type: object
       required:
@@ -331,35 +360,6 @@ components:
           type: string
         screen_category_id:
           type: integer
-    Screen:
-      allOf:
-      - $ref: '#/components/schemas/ScreenEditable'
-      - type: object
-        properties:
-          id:
-            type: integer
-          user_id:
-            type: integer
-          created_at:
-            type: string
-            format: date-time
-          updated_at:
-            type: string
-            format: date-time
-          deleted_at:
-            type:
-            - string
-            - 'null'
-            format: date-time
-    ScreenCollection:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Screen'
-        meta:
-          $ref: '#/components/schemas/Metadata'
     Metadata:
       type: object
       properties:
