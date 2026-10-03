@@ -166,9 +166,52 @@ paths:
                 $ref: '#/components/schemas/GroupCollection'
 components:
   schemas:
-    Group:
+    Metadata:
+      type: object
+      properties:
+        total:
+          type: integer
+        count:
+          type: integer
+        per_page:
+          type: integer
+        current_page:
+          type: integer
+        total_pages:
+          type: integer
+        sort_by:
+          type: string
+        sort_order:
+          type: string
+        search:
+          type: string
+    GroupEditable:
+      type: object
+      required:
+      - name
+      - status
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        status:
+          type: string
+          enum:
+          - ACTIVE
+          - INACTIVE
+    UserCollection:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+        meta:
+          $ref: '#/components/schemas/Metadata'
+    User:
       allOf:
-      - $ref: '#/components/schemas/GroupEditable'
+      - $ref: '#/components/schemas/UserEditable'
       - type: object
         properties:
           id:
@@ -179,6 +222,15 @@ components:
           updated_at:
             type: string
             format: date-time
+          deleted_at:
+            type:
+            - string
+            - 'null'
+            format: date-time
+          is_administrator:
+            type: boolean
+          fullname:
+            type: string
     GroupCollection:
       type: object
       properties:
@@ -244,33 +296,9 @@ components:
           - string
           - 'null'
           format: date-time
-    GroupEditable:
-      type: object
-      required:
-      - name
-      - status
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        status:
-          type: string
-          enum:
-          - ACTIVE
-          - INACTIVE
-    UserCollection:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/User'
-        meta:
-          $ref: '#/components/schemas/Metadata'
-    User:
+    Group:
       allOf:
-      - $ref: '#/components/schemas/UserEditable'
+      - $ref: '#/components/schemas/GroupEditable'
       - type: object
         properties:
           id:
@@ -281,80 +309,6 @@ components:
           updated_at:
             type: string
             format: date-time
-          deleted_at:
-            type:
-            - string
-            - 'null'
-            format: date-time
-          is_administrator:
-            type: boolean
-          fullname:
-            type: string
-    Metadata:
-      type: object
-      properties:
-        total:
-          type: integer
-        count:
-          type: integer
-        per_page:
-          type: integer
-        current_page:
-          type: integer
-        total_pages:
-          type: integer
-        sort_by:
-          type: string
-        sort_order:
-          type: string
-        search:
-          type: string
-  parameters:
-    per_page:
-      name: per_page
-      in: query
-      schema:
-        type: integer
-        default: 10
-    include:
-      name: include
-      in: query
-      description: Include data from related models in payload. Comma separated list.
-      schema:
-        type: string
-        default: ''
-    order_direction:
-      name: order_direction
-      in: query
-      schema:
-        type: string
-        enum:
-        - asc
-        - desc
-        default: asc
-    status:
-      name: status
-      in: query
-      description: Filter by status - ACTIVE or INACTIVE
-      schema:
-        type: string
-        enum:
-        - ACTIVE
-        - INACTIVE
-    order_by:
-      name: order_by
-      in: query
-      description: Field to order results by
-      schema:
-        type: string
-    filter:
-      name: filter
-      in: query
-      description: 'Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.
-
-        '
-      schema:
-        type: string
   responses:
     '422':
       description: Unprocessable Entity
@@ -376,6 +330,52 @@ components:
             properties:
               error:
                 type: string
+  parameters:
+    status:
+      name: status
+      in: query
+      description: Filter by status - ACTIVE or INACTIVE
+      schema:
+        type: string
+        enum:
+        - ACTIVE
+        - INACTIVE
+    filter:
+      name: filter
+      in: query
+      description: 'Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.
+
+        '
+      schema:
+        type: string
+    include:
+      name: include
+      in: query
+      description: Include data from related models in payload. Comma separated list.
+      schema:
+        type: string
+        default: ''
+    order_by:
+      name: order_by
+      in: query
+      description: Field to order results by
+      schema:
+        type: string
+    per_page:
+      name: per_page
+      in: query
+      schema:
+        type: integer
+        default: 10
+    order_direction:
+      name: order_direction
+      in: query
+      schema:
+        type: string
+        enum:
+        - asc
+        - desc
+        default: asc
   securitySchemes:
     bearerAuth:
       type: http

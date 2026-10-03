@@ -79,6 +79,12 @@ components:
         '
       schema:
         type: string
+    order_by:
+      name: order_by
+      in: query
+      description: Field to order results by
+      schema:
+        type: string
     order_direction:
       name: order_direction
       in: query
@@ -88,12 +94,6 @@ components:
         - asc
         - desc
         default: asc
-    order_by:
-      name: order_by
-      in: query
-      description: Field to order results by
-      schema:
-        type: string
   securitySchemes:
     bearerAuth:
       type: http
