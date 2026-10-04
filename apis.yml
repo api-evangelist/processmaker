@@ -210,6 +210,9 @@ apis:
   - type: Authentication
     url: https://github.com/ProcessMaker/processmaker/wiki/API-Authentication
 common:
+  - type: CapabilityMap
+    url: capabilities/processmaker-capability-edges.yml
+    name: ProcessMaker Business Capability Map
   - type: IssueTracker
     url: https://github.com/ProcessMaker/processmaker/issues
   - type: Releases

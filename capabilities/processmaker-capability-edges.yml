@@ -1,0 +1,25 @@
+slug: processmaker
+provider: ProcessMaker
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Processes
+  spec_file: processmaker-processes-api-openapi.yml
+  capability_id: BC-930.20
+  capability_id_l1: BC-930
+  capability_name: Process Modeling and Documentation
+  confidence: 0.88
+  evidence: GET /processes/{processId}/bpmn  'Download the BPMN definition of a process'; PUT /processes/{processId}/draft  'Update
+    a draft process'
+  reason: Create/update/draft/export/import of BPMN process definitions is unmistakably authoring, versioning
+    and publication of process models on a BPM platform.
