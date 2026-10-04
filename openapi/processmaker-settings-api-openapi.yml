@@ -65,24 +65,12 @@ paths:
           description: No content
 components:
   parameters:
-    per_page:
-      name: per_page
-      in: query
-      schema:
-        type: integer
-        default: 10
     filter:
       name: filter
       in: query
       description: 'Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.
 
         '
-      schema:
-        type: string
-    order_by:
-      name: order_by
-      in: query
-      description: Field to order results by
       schema:
         type: string
     order_direction:
@@ -94,6 +82,18 @@ components:
         - asc
         - desc
         default: asc
+    per_page:
+      name: per_page
+      in: query
+      schema:
+        type: integer
+        default: 10
+    order_by:
+      name: order_by
+      in: query
+      description: Field to order results by
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

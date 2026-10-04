@@ -164,26 +164,28 @@ paths:
               schema:
                 type: object
 components:
+  responses:
+    '422':
+      description: Unprocessable Entity
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+              errors:
+                type: object
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
   schemas:
-    Metadata:
-      type: object
-      properties:
-        total:
-          type: integer
-        count:
-          type: integer
-        per_page:
-          type: integer
-        current_page:
-          type: integer
-        total_pages:
-          type: integer
-        sort_by:
-          type: string
-        sort_order:
-          type: string
-        search:
-          type: string
     UserCollection:
       type: object
       properties:
@@ -193,28 +195,6 @@ components:
             $ref: '#/components/schemas/User'
         meta:
           $ref: '#/components/schemas/Metadata'
-    User:
-      allOf:
-      - $ref: '#/components/schemas/UserEditable'
-      - type: object
-        properties:
-          id:
-            type: integer
-          created_at:
-            type: string
-            format: date-time
-          updated_at:
-            type: string
-            format: date-time
-          deleted_at:
-            type:
-            - string
-            - 'null'
-            format: date-time
-          is_administrator:
-            type: boolean
-          fullname:
-            type: string
     UserEditable:
       type: object
       required:
@@ -271,51 +251,57 @@ components:
           - string
           - 'null'
           format: date-time
-  responses:
-    '422':
-      description: Unprocessable Entity
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-              errors:
-                type: object
-    '404':
-      description: Not Found
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              error:
-                type: string
+    Metadata:
+      type: object
+      properties:
+        total:
+          type: integer
+        count:
+          type: integer
+        per_page:
+          type: integer
+        current_page:
+          type: integer
+        total_pages:
+          type: integer
+        sort_by:
+          type: string
+        sort_order:
+          type: string
+        search:
+          type: string
+    User:
+      allOf:
+      - $ref: '#/components/schemas/UserEditable'
+      - type: object
+        properties:
+          id:
+            type: integer
+          created_at:
+            type: string
+            format: date-time
+          updated_at:
+            type: string
+            format: date-time
+          deleted_at:
+            type:
+            - string
+            - 'null'
+            format: date-time
+          is_administrator:
+            type: boolean
+          fullname:
+            type: string
   parameters:
-    filter:
-      name: filter
+    order_direction:
+      name: order_direction
       in: query
-      description: 'Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.
-
-        '
-      schema:
-        type: string
-    status:
-      name: status
-      in: query
-      description: Filter by status - ACTIVE or INACTIVE
       schema:
         type: string
         enum:
-        - ACTIVE
-        - INACTIVE
-    order_by:
-      name: order_by
-      in: query
-      description: Field to order results by
-      schema:
-        type: string
+        - asc
+        - desc
+        default: asc
     include:
       name: include
       in: query
@@ -329,15 +315,29 @@ components:
       schema:
         type: integer
         default: 10
-    order_direction:
-      name: order_direction
+    status:
+      name: status
       in: query
+      description: Filter by status - ACTIVE or INACTIVE
       schema:
         type: string
         enum:
-        - asc
-        - desc
-        default: asc
+        - ACTIVE
+        - INACTIVE
+    filter:
+      name: filter
+      in: query
+      description: 'Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.
+
+        '
+      schema:
+        type: string
+    order_by:
+      name: order_by
+      in: query
+      description: Field to order results by
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

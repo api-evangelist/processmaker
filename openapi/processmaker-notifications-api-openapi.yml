@@ -127,21 +127,53 @@ paths:
         '204':
           description: No content
 components:
+  parameters:
+    order_direction:
+      name: order_direction
+      in: query
+      schema:
+        type: string
+        enum:
+        - asc
+        - desc
+        default: asc
+    per_page:
+      name: per_page
+      in: query
+      schema:
+        type: integer
+        default: 10
+    filter:
+      name: filter
+      in: query
+      description: 'Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.
+
+        '
+      schema:
+        type: string
+    order_by:
+      name: order_by
+      in: query
+      description: Field to order results by
+      schema:
+        type: string
   schemas:
-    Notification:
-      allOf:
-      - $ref: '#/components/schemas/NotificationEditable'
-      - type: object
-        properties:
-          id:
-            type: string
-            format: uuid
-          created_at:
-            type: string
-            format: date-time
-          updated_at:
-            type: string
-            format: date-time
+    NotificationEditable:
+      type: object
+      properties:
+        type:
+          type: string
+        notifiable_type:
+          type: string
+        notifiable_id:
+          type: integer
+        data:
+          type: object
+        read_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
     Metadata:
       type: object
       properties:
@@ -161,52 +193,20 @@ components:
           type: string
         search:
           type: string
-    NotificationEditable:
-      type: object
-      properties:
-        type:
-          type: string
-        notifiable_type:
-          type: string
-        notifiable_id:
-          type: integer
-        data:
-          type: object
-        read_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-  parameters:
-    filter:
-      name: filter
-      in: query
-      description: 'Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.
-
-        '
-      schema:
-        type: string
-    order_by:
-      name: order_by
-      in: query
-      description: Field to order results by
-      schema:
-        type: string
-    per_page:
-      name: per_page
-      in: query
-      schema:
-        type: integer
-        default: 10
-    order_direction:
-      name: order_direction
-      in: query
-      schema:
-        type: string
-        enum:
-        - asc
-        - desc
-        default: asc
+    Notification:
+      allOf:
+      - $ref: '#/components/schemas/NotificationEditable'
+      - type: object
+        properties:
+          id:
+            type: string
+            format: uuid
+          created_at:
+            type: string
+            format: date-time
+          updated_at:
+            type: string
+            format: date-time
   securitySchemes:
     bearerAuth:
       type: http

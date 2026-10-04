@@ -104,7 +104,68 @@ paths:
         '422':
           $ref: '#/components/responses/422'
 components:
+  responses:
+    '422':
+      description: Unprocessable Entity
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+              errors:
+                type: object
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+  parameters:
+    order_direction:
+      name: order_direction
+      in: query
+      schema:
+        type: string
+        enum:
+        - asc
+        - desc
+        default: asc
+    include:
+      name: include
+      in: query
+      description: Include data from related models in payload. Comma separated list.
+      schema:
+        type: string
+        default: ''
+    filter:
+      name: filter
+      in: query
+      description: 'Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.
+
+        '
+      schema:
+        type: string
+    order_by:
+      name: order_by
+      in: query
+      description: Field to order results by
+      schema:
+        type: string
   schemas:
+    TaskCollection:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Task'
+        meta:
+          $ref: '#/components/schemas/Metadata'
     Metadata:
       type: object
       properties:
@@ -124,15 +185,6 @@ components:
           type: string
         search:
           type: string
-    TaskCollection:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Task'
-        meta:
-          $ref: '#/components/schemas/Metadata'
     Task:
       type: object
       properties:
@@ -176,58 +228,6 @@ components:
           format: date-time
         data:
           type: object
-  responses:
-    '422':
-      description: Unprocessable Entity
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-              errors:
-                type: object
-    '404':
-      description: Not Found
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              error:
-                type: string
-  parameters:
-    filter:
-      name: filter
-      in: query
-      description: 'Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.
-
-        '
-      schema:
-        type: string
-    include:
-      name: include
-      in: query
-      description: Include data from related models in payload. Comma separated list.
-      schema:
-        type: string
-        default: ''
-    order_by:
-      name: order_by
-      in: query
-      description: Field to order results by
-      schema:
-        type: string
-    order_direction:
-      name: order_direction
-      in: query
-      schema:
-        type: string
-        enum:
-        - asc
-        - desc
-        default: asc
   securitySchemes:
     bearerAuth:
       type: http

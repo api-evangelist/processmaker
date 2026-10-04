@@ -138,6 +138,36 @@ paths:
         '204':
           description: No content
 components:
+  parameters:
+    order_direction:
+      name: order_direction
+      in: query
+      schema:
+        type: string
+        enum:
+        - asc
+        - desc
+        default: asc
+    per_page:
+      name: per_page
+      in: query
+      schema:
+        type: integer
+        default: 10
+    filter:
+      name: filter
+      in: query
+      description: 'Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.
+
+        '
+      schema:
+        type: string
+    order_by:
+      name: order_by
+      in: query
+      description: Field to order results by
+      schema:
+        type: string
   schemas:
     Metadata:
       type: object
@@ -186,36 +216,6 @@ components:
         url:
           type: string
           format: uri
-  parameters:
-    filter:
-      name: filter
-      in: query
-      description: 'Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.
-
-        '
-      schema:
-        type: string
-    order_by:
-      name: order_by
-      in: query
-      description: Field to order results by
-      schema:
-        type: string
-    per_page:
-      name: per_page
-      in: query
-      schema:
-        type: integer
-        default: 10
-    order_direction:
-      name: order_direction
-      in: query
-      schema:
-        type: string
-        enum:
-        - asc
-        - desc
-        default: asc
   responses:
     '404':
       description: Not Found

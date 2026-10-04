@@ -131,6 +131,43 @@ paths:
         '204':
           description: Event triggered successfully
 components:
+  parameters:
+    order_direction:
+      name: order_direction
+      in: query
+      schema:
+        type: string
+        enum:
+        - asc
+        - desc
+        default: asc
+    per_page:
+      name: per_page
+      in: query
+      schema:
+        type: integer
+        default: 10
+    include:
+      name: include
+      in: query
+      description: Include data from related models in payload. Comma separated list.
+      schema:
+        type: string
+        default: ''
+    filter:
+      name: filter
+      in: query
+      description: 'Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.
+
+        '
+      schema:
+        type: string
+    order_by:
+      name: order_by
+      in: query
+      description: Field to order results by
+      schema:
+        type: string
   schemas:
     ProcessRequest:
       allOf:
@@ -179,15 +216,6 @@ components:
           type: string
         search:
           type: string
-    ProcessRequestCollection:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProcessRequest'
-        meta:
-          $ref: '#/components/schemas/Metadata'
     ProcessRequestEditable:
       type: object
       properties:
@@ -202,43 +230,15 @@ components:
           type: object
         name:
           type: string
-  parameters:
-    filter:
-      name: filter
-      in: query
-      description: 'Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.
-
-        '
-      schema:
-        type: string
-    order_by:
-      name: order_by
-      in: query
-      description: Field to order results by
-      schema:
-        type: string
-    include:
-      name: include
-      in: query
-      description: Include data from related models in payload. Comma separated list.
-      schema:
-        type: string
-        default: ''
-    per_page:
-      name: per_page
-      in: query
-      schema:
-        type: integer
-        default: 10
-    order_direction:
-      name: order_direction
-      in: query
-      schema:
-        type: string
-        enum:
-        - asc
-        - desc
-        default: asc
+    ProcessRequestCollection:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProcessRequest'
+        meta:
+          $ref: '#/components/schemas/Metadata'
   responses:
     '404':
       description: Not Found

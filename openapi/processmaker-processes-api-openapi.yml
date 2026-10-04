@@ -347,7 +347,137 @@ paths:
               schema:
                 $ref: '#/components/schemas/ProcessRequest'
 components:
+  responses:
+    '422':
+      description: Unprocessable Entity
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+              errors:
+                type: object
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+  parameters:
+    order_direction:
+      name: order_direction
+      in: query
+      schema:
+        type: string
+        enum:
+        - asc
+        - desc
+        default: asc
+    include:
+      name: include
+      in: query
+      description: Include data from related models in payload. Comma separated list.
+      schema:
+        type: string
+        default: ''
+    per_page:
+      name: per_page
+      in: query
+      schema:
+        type: integer
+        default: 10
+    status:
+      name: status
+      in: query
+      description: Filter by status - ACTIVE or INACTIVE
+      schema:
+        type: string
+        enum:
+        - ACTIVE
+        - INACTIVE
+    filter:
+      name: filter
+      in: query
+      description: 'Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.
+
+        '
+      schema:
+        type: string
+    order_by:
+      name: order_by
+      in: query
+      description: Field to order results by
+      schema:
+        type: string
   schemas:
+    ProcessEditable:
+      type: object
+      required:
+      - name
+      - status
+      - bpmn
+      - process_category_id
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        status:
+          type: string
+          enum:
+          - ACTIVE
+          - INACTIVE
+        bpmn:
+          type: string
+          description: BPMN 2.0 XML string
+        process_category_id:
+          type: integer
+        manager_id:
+          type: integer
+        cancel_screen_id:
+          type: integer
+        request_detail_screen_id:
+          type: integer
+        is_valid:
+          type: boolean
+        warnings:
+          type: array
+          items:
+            type: string
+    ProcessCollection:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Process'
+        meta:
+          $ref: '#/components/schemas/Metadata'
+    Process:
+      allOf:
+      - $ref: '#/components/schemas/ProcessEditable'
+      - type: object
+        properties:
+          id:
+            type: integer
+          user_id:
+            type: integer
+          created_at:
+            type: string
+            format: date-time
+          updated_at:
+            type: string
+            format: date-time
+          deleted_at:
+            type:
+            - string
+            - 'null'
+            format: date-time
     ProcessRequest:
       allOf:
       - $ref: '#/components/schemas/ProcessRequestEditable'
@@ -395,69 +525,17 @@ components:
           type: string
         search:
           type: string
-    ProcessCollection:
+    ProcessImport:
       type: object
       properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Process'
-        meta:
-          $ref: '#/components/schemas/Metadata'
-    ProcessEditable:
-      type: object
-      required:
-      - name
-      - status
-      - bpmn
-      - process_category_id
-      properties:
-        name:
-          type: string
-        description:
-          type: string
         status:
-          type: string
-          enum:
-          - ACTIVE
-          - INACTIVE
-        bpmn:
-          type: string
-          description: BPMN 2.0 XML string
-        process_category_id:
-          type: integer
-        manager_id:
-          type: integer
-        cancel_screen_id:
-          type: integer
-        request_detail_screen_id:
-          type: integer
-        is_valid:
-          type: boolean
-        warnings:
+          type: object
+        assignable:
           type: array
           items:
-            type: string
-    Process:
-      allOf:
-      - $ref: '#/components/schemas/ProcessEditable'
-      - type: object
-        properties:
-          id:
-            type: integer
-          user_id:
-            type: integer
-          created_at:
-            type: string
-            format: date-time
-          updated_at:
-            type: string
-            format: date-time
-          deleted_at:
-            type:
-            - string
-            - 'null'
-            format: date-time
+            type: object
+        process:
+          $ref: '#/components/schemas/Process'
     ProcessRequestEditable:
       type: object
       properties:
@@ -472,84 +550,6 @@ components:
           type: object
         name:
           type: string
-    ProcessImport:
-      type: object
-      properties:
-        status:
-          type: object
-        assignable:
-          type: array
-          items:
-            type: object
-        process:
-          $ref: '#/components/schemas/Process'
-  responses:
-    '422':
-      description: Unprocessable Entity
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-              errors:
-                type: object
-    '404':
-      description: Not Found
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              error:
-                type: string
-  parameters:
-    status:
-      name: status
-      in: query
-      description: Filter by status - ACTIVE or INACTIVE
-      schema:
-        type: string
-        enum:
-        - ACTIVE
-        - INACTIVE
-    filter:
-      name: filter
-      in: query
-      description: 'Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.
-
-        '
-      schema:
-        type: string
-    include:
-      name: include
-      in: query
-      description: Include data from related models in payload. Comma separated list.
-      schema:
-        type: string
-        default: ''
-    order_by:
-      name: order_by
-      in: query
-      description: Field to order results by
-      schema:
-        type: string
-    per_page:
-      name: per_page
-      in: query
-      schema:
-        type: integer
-        default: 10
-    order_direction:
-      name: order_direction
-      in: query
-      schema:
-        type: string
-        enum:
-        - asc
-        - desc
-        default: asc
   securitySchemes:
     bearerAuth:
       type: http
