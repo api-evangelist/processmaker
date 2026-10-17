@@ -121,6 +121,14 @@ paths:
           description: No content
 components:
   parameters:
+    filter:
+      name: filter
+      in: query
+      description: 'Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.
+
+        '
+      schema:
+        type: string
     order_direction:
       name: order_direction
       in: query
@@ -136,20 +144,22 @@ components:
       schema:
         type: integer
         default: 10
-    filter:
-      name: filter
-      in: query
-      description: 'Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.
-
-        '
-      schema:
-        type: string
     order_by:
       name: order_by
       in: query
       description: Field to order results by
       schema:
         type: string
+  responses:
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
   schemas:
     EnvironmentVariableEditable:
       type: object
@@ -164,6 +174,19 @@ components:
           type: string
         value:
           type: string
+    EnvironmentVariable:
+      allOf:
+      - $ref: '#/components/schemas/EnvironmentVariableEditable'
+      - type: object
+        properties:
+          id:
+            type: integer
+          created_at:
+            type: string
+            format: date-time
+          updated_at:
+            type: string
+            format: date-time
     Metadata:
       type: object
       properties:
@@ -183,29 +206,6 @@ components:
           type: string
         search:
           type: string
-    EnvironmentVariable:
-      allOf:
-      - $ref: '#/components/schemas/EnvironmentVariableEditable'
-      - type: object
-        properties:
-          id:
-            type: integer
-          created_at:
-            type: string
-            format: date-time
-          updated_at:
-            type: string
-            format: date-time
-  responses:
-    '404':
-      description: Not Found
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              error:
-                type: string
   securitySchemes:
     bearerAuth:
       type: http

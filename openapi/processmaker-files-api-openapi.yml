@@ -138,56 +138,7 @@ paths:
         '204':
           description: No content
 components:
-  parameters:
-    order_direction:
-      name: order_direction
-      in: query
-      schema:
-        type: string
-        enum:
-        - asc
-        - desc
-        default: asc
-    per_page:
-      name: per_page
-      in: query
-      schema:
-        type: integer
-        default: 10
-    filter:
-      name: filter
-      in: query
-      description: 'Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.
-
-        '
-      schema:
-        type: string
-    order_by:
-      name: order_by
-      in: query
-      description: Field to order results by
-      schema:
-        type: string
   schemas:
-    Metadata:
-      type: object
-      properties:
-        total:
-          type: integer
-        count:
-          type: integer
-        per_page:
-          type: integer
-        current_page:
-          type: integer
-        total_pages:
-          type: integer
-        sort_by:
-          type: string
-        sort_order:
-          type: string
-        search:
-          type: string
     Media:
       type: object
       properties:
@@ -216,6 +167,55 @@ components:
         url:
           type: string
           format: uri
+    Metadata:
+      type: object
+      properties:
+        total:
+          type: integer
+        count:
+          type: integer
+        per_page:
+          type: integer
+        current_page:
+          type: integer
+        total_pages:
+          type: integer
+        sort_by:
+          type: string
+        sort_order:
+          type: string
+        search:
+          type: string
+  parameters:
+    filter:
+      name: filter
+      in: query
+      description: 'Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.
+
+        '
+      schema:
+        type: string
+    order_direction:
+      name: order_direction
+      in: query
+      schema:
+        type: string
+        enum:
+        - asc
+        - desc
+        default: asc
+    per_page:
+      name: per_page
+      in: query
+      schema:
+        type: integer
+        default: 10
+    order_by:
+      name: order_by
+      in: query
+      description: Field to order results by
+      schema:
+        type: string
   responses:
     '404':
       description: Not Found

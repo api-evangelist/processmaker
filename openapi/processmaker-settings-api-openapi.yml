@@ -65,14 +65,6 @@ paths:
           description: No content
 components:
   parameters:
-    filter:
-      name: filter
-      in: query
-      description: 'Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.
-
-        '
-      schema:
-        type: string
     order_direction:
       name: order_direction
       in: query
@@ -88,6 +80,14 @@ components:
       schema:
         type: integer
         default: 10
+    filter:
+      name: filter
+      in: query
+      description: 'Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.
+
+        '
+      schema:
+        type: string
     order_by:
       name: order_by
       in: query

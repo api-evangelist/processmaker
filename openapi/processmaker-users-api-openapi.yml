@@ -164,37 +164,53 @@ paths:
               schema:
                 type: object
 components:
-  responses:
-    '422':
-      description: Unprocessable Entity
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-              errors:
-                type: object
-    '404':
-      description: Not Found
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              error:
-                type: string
+  parameters:
+    include:
+      name: include
+      in: query
+      description: Include data from related models in payload. Comma separated list.
+      schema:
+        type: string
+        default: ''
+    filter:
+      name: filter
+      in: query
+      description: 'Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.
+
+        '
+      schema:
+        type: string
+    order_direction:
+      name: order_direction
+      in: query
+      schema:
+        type: string
+        enum:
+        - asc
+        - desc
+        default: asc
+    per_page:
+      name: per_page
+      in: query
+      schema:
+        type: integer
+        default: 10
+    order_by:
+      name: order_by
+      in: query
+      description: Field to order results by
+      schema:
+        type: string
+    status:
+      name: status
+      in: query
+      description: Filter by status - ACTIVE or INACTIVE
+      schema:
+        type: string
+        enum:
+        - ACTIVE
+        - INACTIVE
   schemas:
-    UserCollection:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/User'
-        meta:
-          $ref: '#/components/schemas/Metadata'
     UserEditable:
       type: object
       required:
@@ -251,25 +267,6 @@ components:
           - string
           - 'null'
           format: date-time
-    Metadata:
-      type: object
-      properties:
-        total:
-          type: integer
-        count:
-          type: integer
-        per_page:
-          type: integer
-        current_page:
-          type: integer
-        total_pages:
-          type: integer
-        sort_by:
-          type: string
-        sort_order:
-          type: string
-        search:
-          type: string
     User:
       allOf:
       - $ref: '#/components/schemas/UserEditable'
@@ -292,52 +289,55 @@ components:
             type: boolean
           fullname:
             type: string
-  parameters:
-    order_direction:
-      name: order_direction
-      in: query
-      schema:
-        type: string
-        enum:
-        - asc
-        - desc
-        default: asc
-    include:
-      name: include
-      in: query
-      description: Include data from related models in payload. Comma separated list.
-      schema:
-        type: string
-        default: ''
-    per_page:
-      name: per_page
-      in: query
-      schema:
-        type: integer
-        default: 10
-    status:
-      name: status
-      in: query
-      description: Filter by status - ACTIVE or INACTIVE
-      schema:
-        type: string
-        enum:
-        - ACTIVE
-        - INACTIVE
-    filter:
-      name: filter
-      in: query
-      description: 'Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.
-
-        '
-      schema:
-        type: string
-    order_by:
-      name: order_by
-      in: query
-      description: Field to order results by
-      schema:
-        type: string
+    UserCollection:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+        meta:
+          $ref: '#/components/schemas/Metadata'
+    Metadata:
+      type: object
+      properties:
+        total:
+          type: integer
+        count:
+          type: integer
+        per_page:
+          type: integer
+        current_page:
+          type: integer
+        total_pages:
+          type: integer
+        sort_by:
+          type: string
+        sort_order:
+          type: string
+        search:
+          type: string
+  responses:
+    '422':
+      description: Unprocessable Entity
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+              errors:
+                type: object
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
   securitySchemes:
     bearerAuth:
       type: http

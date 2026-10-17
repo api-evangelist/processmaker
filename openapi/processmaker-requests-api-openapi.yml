@@ -132,21 +132,6 @@ paths:
           description: Event triggered successfully
 components:
   parameters:
-    order_direction:
-      name: order_direction
-      in: query
-      schema:
-        type: string
-        enum:
-        - asc
-        - desc
-        default: asc
-    per_page:
-      name: per_page
-      in: query
-      schema:
-        type: integer
-        default: 10
     include:
       name: include
       in: query
@@ -162,12 +147,37 @@ components:
         '
       schema:
         type: string
+    order_direction:
+      name: order_direction
+      in: query
+      schema:
+        type: string
+        enum:
+        - asc
+        - desc
+        default: asc
+    per_page:
+      name: per_page
+      in: query
+      schema:
+        type: integer
+        default: 10
     order_by:
       name: order_by
       in: query
       description: Field to order results by
       schema:
         type: string
+  responses:
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
   schemas:
     ProcessRequest:
       allOf:
@@ -197,25 +207,6 @@ components:
             - string
             - 'null'
             format: date-time
-    Metadata:
-      type: object
-      properties:
-        total:
-          type: integer
-        count:
-          type: integer
-        per_page:
-          type: integer
-        current_page:
-          type: integer
-        total_pages:
-          type: integer
-        sort_by:
-          type: string
-        sort_order:
-          type: string
-        search:
-          type: string
     ProcessRequestEditable:
       type: object
       properties:
@@ -239,16 +230,25 @@ components:
             $ref: '#/components/schemas/ProcessRequest'
         meta:
           $ref: '#/components/schemas/Metadata'
-  responses:
-    '404':
-      description: Not Found
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              error:
-                type: string
+    Metadata:
+      type: object
+      properties:
+        total:
+          type: integer
+        count:
+          type: integer
+        per_page:
+          type: integer
+        current_page:
+          type: integer
+        total_pages:
+          type: integer
+        sort_by:
+          type: string
+        sort_order:
+          type: string
+        search:
+          type: string
   securitySchemes:
     bearerAuth:
       type: http

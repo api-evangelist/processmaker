@@ -104,6 +104,37 @@ paths:
         '422':
           $ref: '#/components/responses/422'
 components:
+  parameters:
+    include:
+      name: include
+      in: query
+      description: Include data from related models in payload. Comma separated list.
+      schema:
+        type: string
+        default: ''
+    filter:
+      name: filter
+      in: query
+      description: 'Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.
+
+        '
+      schema:
+        type: string
+    order_direction:
+      name: order_direction
+      in: query
+      schema:
+        type: string
+        enum:
+        - asc
+        - desc
+        default: asc
+    order_by:
+      name: order_by
+      in: query
+      description: Field to order results by
+      schema:
+        type: string
   responses:
     '422':
       description: Unprocessable Entity
@@ -125,66 +156,7 @@ components:
             properties:
               error:
                 type: string
-  parameters:
-    order_direction:
-      name: order_direction
-      in: query
-      schema:
-        type: string
-        enum:
-        - asc
-        - desc
-        default: asc
-    include:
-      name: include
-      in: query
-      description: Include data from related models in payload. Comma separated list.
-      schema:
-        type: string
-        default: ''
-    filter:
-      name: filter
-      in: query
-      description: 'Filter results by string. Searches Name, Description, and Status. Status must match exactly. Others can be a substring.
-
-        '
-      schema:
-        type: string
-    order_by:
-      name: order_by
-      in: query
-      description: Field to order results by
-      schema:
-        type: string
   schemas:
-    TaskCollection:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Task'
-        meta:
-          $ref: '#/components/schemas/Metadata'
-    Metadata:
-      type: object
-      properties:
-        total:
-          type: integer
-        count:
-          type: integer
-        per_page:
-          type: integer
-        current_page:
-          type: integer
-        total_pages:
-          type: integer
-        sort_by:
-          type: string
-        sort_order:
-          type: string
-        search:
-          type: string
     Task:
       type: object
       properties:
@@ -228,6 +200,34 @@ components:
           format: date-time
         data:
           type: object
+    TaskCollection:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Task'
+        meta:
+          $ref: '#/components/schemas/Metadata'
+    Metadata:
+      type: object
+      properties:
+        total:
+          type: integer
+        count:
+          type: integer
+        per_page:
+          type: integer
+        current_page:
+          type: integer
+        total_pages:
+          type: integer
+        sort_by:
+          type: string
+        sort_order:
+          type: string
+        search:
+          type: string
   securitySchemes:
     bearerAuth:
       type: http
